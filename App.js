@@ -5,7 +5,9 @@ import { Cat } from './components'
 export default function App() {
   return (
     <View style={styles.container}>
-      <Cat></Cat>
+      <Cat name="Maru" />
+      <Cat name="Jellylorum" />
+      <Cat name="Spot" />
       <StatusBar style="auto" />
     </View>  
   );
