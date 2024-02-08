@@ -1,32 +1,32 @@
-import React, {useState} from 'react';
-import {Button, Text, View} from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Cat = props => {
-  const [isHungry, setIsHungry] = useState(true);
+import HomeScreen from './screens/HomeScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import DetailsScreen from './screens/DetailsScreen';
 
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const HomeStack = () => {
   return (
-    <View>
-      <Text>
-        I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
-      </Text>
-      <Button
-        onPress={() => {
-          setIsHungry(false);
-        }}
-        disabled={!isHungry}
-        title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
-      />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
   );
 };
 
-const Cafe = () => {
+export default function App() {
   return (
-    <>
-      <Cat name="Munkustrap" />
-      <Cat name="Spot" />
-    </>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeStack} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-};
-
-export default Cafe;
+}
