@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-function SettingsScreen() {
+function FavoriteScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings Screen</Text>
+      <Text>FavoriteScreen Screen</Text>
     </View>
   );
 }
 
-export default SettingsScreen;
+export default FavoriteScreen;

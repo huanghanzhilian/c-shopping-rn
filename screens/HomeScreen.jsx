@@ -1,16 +1,22 @@
-import React from 'react';
-import { Button, View, Text } from 'react-native';
+// 在 HomeScreen.js 中
 
-function HomeScreen({ navigation }) {
+import React from 'react';
+import { View, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  const handleGoToDetails = () => {
+    // 导航到详情页
+    navigation.navigate('Address');
+  };
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Button title="Go to Details 1111" onPress={handleGoToDetails} />
     </View>
   );
-}
+};
 
 export default HomeScreen;

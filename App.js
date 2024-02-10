@@ -1,32 +1,15 @@
-import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from './screens/HomeScreen';
-import SettingsScreen from './screens/SettingsScreen';
-import DetailsScreen from './screens/DetailsScreen';
+import MainStackNavigator from "./navigation/StackNavigator";
+import TabNavigator from "./navigation/TabNavigator";
 
-const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
-
-const HomeStack = () => {
+const App = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <MainStackNavigator />
+    </NavigationContainer>
   );
 };
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
+export default App;
