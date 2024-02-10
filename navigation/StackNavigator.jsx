@@ -18,7 +18,11 @@ const screenOptionStyle = {
 
 const MainStackNavigator = () => (
   <Stack.Navigator screenOptions={screenOptionStyle}>
-    <Stack.Screen name="Main" component={TabNavigator} />
+    <Stack.Screen
+      name="Main"
+      component={TabNavigator}
+      options={{ headerShown: false }}
+    />
     <Stack.Screen name="Address" component={AddressScreen} />
     <Stack.Screen name="Checkout" component={CheckoutScreen} />
   </Stack.Navigator>

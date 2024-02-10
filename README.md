@@ -91,3 +91,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ```
 
 This README provides a brief overview of the project's code structure and how to install and run the React Native app locally. Adjustments can be made to tailor it further to your specific project.
+

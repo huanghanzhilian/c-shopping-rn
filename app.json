@@ -25,6 +25,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "scheme": "shoppig-rn-scheme",
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
