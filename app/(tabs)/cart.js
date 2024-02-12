@@ -1,31 +1,33 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
 import { Link } from 'expo-router';
-import { useAuth } from "../../context/auth";
 
-export default function Messages() {
+import { setTokenAsync } from '../../store'
+import { useAppSelector, useAppDispatch } from '../../hooks';
+
+
+export default function CartScreen() {
   
-  const { signOut, user } = useAuth();
+  //? Assets
+  const dispatch = useAppDispatch()
 
+  //? Store
+  const { token, status } = useAppSelector(state => state.user)
+
+  //? Handlers
   const onLogOut = async () => {
-    signOut();
+    dispatch(setTokenAsync(''));
   };
 
   return (
     <View>
-      <Stack.Screen
-        options={{
-          headerShown: true
-        }}
-      />
       <Text>Cart screen</Text>
-      {user?.email
+      {token
         ? (
           <>
-            <Text>{user.email}</Text>
+            <Text>token: {token}</Text>
             <Pressable onPress={onLogOut} style={styles.button}>
-              <Text style={{ color: "white" }}>Log Out</Text>
+              <Text style={{ color: "white" }}>Log Out {status}</Text>
             </Pressable>
           </>
         )

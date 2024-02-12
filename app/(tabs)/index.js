@@ -1,12 +1,11 @@
 import { View, Text } from 'react-native';
 import { Link } from 'expo-router';
 
-export default function Feed() {
+export default function FeedScreen() {
   return (
     <View>
       <Text>Feed screen</Text>
       <Link href="/about">go to About</Link>
-      <Link href="/login">go to Login</Link>
     </View>
   );
 }
