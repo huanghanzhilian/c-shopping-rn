@@ -6,6 +6,7 @@ export default function Feed() {
     <View>
       <Text>Feed screen</Text>
       <Link href="/about">go to About</Link>
+      <Link href="/login">go to Login</Link>
     </View>
   );
 }
