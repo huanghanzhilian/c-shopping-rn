@@ -5,7 +5,7 @@ import { Stack } from 'expo-router/stack'
 import { Provider } from 'react-redux'
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-import { store, setToken } from '../store'
+import { store, setToken } from '@/store'
 
 
 export default function TabsLayout() {

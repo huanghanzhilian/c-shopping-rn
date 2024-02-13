@@ -2,8 +2,8 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 
 import { Link } from 'expo-router';
 
-import { setTokenAsync } from '../../store'
-import { useAppSelector, useAppDispatch } from '../../hooks';
+import { setTokenAsync } from '@/store'
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 
 export default function CartScreen() {
@@ -20,7 +20,7 @@ export default function CartScreen() {
   };
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-500">
+    <View className="flex-1 items-center justify-center bg-white">
       <Text>Cart screen</Text>
       {token
         ? (

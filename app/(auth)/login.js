@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { Pressable, Text, View } from "react-native";
-import { setTokenAsync } from '../../store'
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setTokenAsync } from '@/store'
+import { useAppDispatch, useAppSelector } from '@/hooks';
 
 export default function Login() {
   //? Assets
@@ -24,7 +24,7 @@ export default function Login() {
   }
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-500">
+    <View className="flex-1 items-center justify-center bg-white">
       <Pressable onPress={onLogIn}>
         <Text>Login: {status}</Text>
       </Pressable>
