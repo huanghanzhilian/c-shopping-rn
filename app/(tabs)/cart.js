@@ -20,14 +20,14 @@ export default function CartScreen() {
   };
 
   return (
-    <View>
+    <View className="flex-1 items-center justify-center bg-gray-500">
       <Text>Cart screen</Text>
       {token
         ? (
           <>
             <Text>token: {token}</Text>
-            <Pressable onPress={onLogOut} style={styles.button}>
-              <Text style={{ color: "white" }}>Log Out {status}</Text>
+            <Pressable onPress={onLogOut}>
+              <Text>Log Out {status}</Text>
             </Pressable>
           </>
         )
@@ -42,19 +42,3 @@ export default function CartScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  button: {
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-    width: "60%",
-    backgroundColor: "#05BFDB",
-    marginTop: 8,
-    borderRadius: 32,
-    alignItems: "center",
-  },
-});

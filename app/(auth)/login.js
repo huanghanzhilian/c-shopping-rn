@@ -24,7 +24,7 @@ export default function Login() {
   }
 
   return (
-    <View>
+    <View className="flex-1 items-center justify-center bg-gray-500">
       <Pressable onPress={onLogIn}>
         <Text>Login: {status}</Text>
       </Pressable>

@@ -6,7 +6,7 @@ export default function Details() {
   const params = useLocalSearchParams();
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View className="flex-1 items-center justify-center bg-gray-500">
       <Text
         onPress={() => {
           router.setParams({ name: 'Updated' });

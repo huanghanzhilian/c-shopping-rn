@@ -17,6 +17,7 @@
     "expo-linking": "~5.0.2",
     "expo-router": "^2.0.0",
     "expo-status-bar": "~1.6.0",
+    "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-native": "0.73.2",
     "react-native-gesture-handler": "~2.12.0",
@@ -25,7 +26,8 @@
     "react-redux": "^9.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "tailwindcss": "^3.3.2"
   },
   "private": true,
   "overrides": {
