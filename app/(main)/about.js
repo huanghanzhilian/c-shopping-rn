@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
-export default function Details() {
+export default function AboutScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
 

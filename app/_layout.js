@@ -8,7 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage"
 import { store, setToken } from '@/store'
 
 
-export default function TabsLayout() {
+export default function RootLayout() {
   //? Assets
   const [isReady, setIsReady] = useState(false)
   const [loadedUser, setLoadedUser] = useState(null)
@@ -39,7 +39,7 @@ export default function TabsLayout() {
     <Provider store={store}>
       <Stack>
         <Stack.Screen
-          name="(tabs)"
+          name="(main)/(tabs)"
           options={{
             headerShown: false,
           }}

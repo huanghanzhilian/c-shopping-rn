@@ -3,7 +3,7 @@ import { Pressable, Text, View } from "react-native";
 import { setTokenAsync } from '@/store'
 import { useAppDispatch, useAppSelector } from '@/hooks';
 
-export default function Login() {
+export default function LoginScreen() {
   //? Assets
   const dispatch = useAppDispatch()
   const router = useRouter()

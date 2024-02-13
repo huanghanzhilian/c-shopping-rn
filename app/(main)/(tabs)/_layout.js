@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function HomeLayout() {
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
