@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.+(js|ts|jsx|tsx)'",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -30,6 +31,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-universe": "^12.0.0",
