@@ -13,6 +13,7 @@ export default function AboutScreen() {
         }}>
         Update the title
       </Text>
+      <Text>process.env.EXPO_PUBLIC_API_KEY: {process.env.EXPO_PUBLIC_API_KEY}</Text>
     </View>
   );
 }
