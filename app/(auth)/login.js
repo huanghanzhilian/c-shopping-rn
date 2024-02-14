@@ -10,14 +10,14 @@ export default function LoginScreen() {
   const router = useRouter()
 
   //? Store
-  const { token, status } = useAppSelector(state => state.user)
+  const { status } = useAppSelector(state => state.user)
 
   //? Handlers
   const onLogIn = async () => {
     try {
       await dispatch(setTokenAsync('123456')).unwrap()
       router.back()
-    } catch (e) {
+    } catch (error) {
       // TODO: deal with the error
     }
   }

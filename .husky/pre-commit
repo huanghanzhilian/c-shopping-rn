@@ -1,3 +1,2 @@
-npm run lint
-npm run format
+npx lint-staged
 git add .
