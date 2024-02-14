@@ -36,7 +36,7 @@ export const setTokenAsync = createAsyncThunk(
       await AsyncStorage.setItem('token', token)
       dispatch(setToken(token))
       return true
-    } catch (err) {
+    } catch (error) {
       return false
     }
   }
