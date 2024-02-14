@@ -1,7 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-const token = ''
+
+
+
+
+
+
+
+const token = ""
+
+
 const initialState = {
   token,
   status: 'idle',
