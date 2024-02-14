@@ -9,6 +9,15 @@ export default function LoginScreen() {
   const dispatch = useAppDispatch()
   const router = useRouter()
 
+
+
+
+
+
+
+
+
+
   //? Store
   const { status } = useAppSelector(state => state.user)
 
@@ -17,9 +26,7 @@ export default function LoginScreen() {
     try {
       await dispatch(setTokenAsync('123456')).unwrap()
       router.back()
-    } catch (error) {
-      // TODO: deal with the error
-    }
+    } catch (error) {}
   }
 
   return (
