@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { DrawerContentScrollView } from '@react-navigation/drawer';
+import { DrawerContentScrollView } from '@react-navigation/drawer'
+import React from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
 
 const DrawerContent = ({ navigation }) => {
   return (
@@ -13,7 +13,7 @@ const DrawerContent = ({ navigation }) => {
         {/* Add more menu items as needed */}
       </View>
     </DrawerContentScrollView>
-  );
-};
+  )
+}
 
-export default DrawerContent;
+export default DrawerContent

@@ -1,7 +1,8 @@
-import { useRouter } from 'expo-router';
-import { Pressable, Text, View } from "react-native";
+import { useRouter } from 'expo-router'
+import { Pressable, Text, View } from 'react-native'
+
+import { useAppDispatch, useAppSelector } from '@/hooks'
 import { setTokenAsync } from '@/store'
-import { useAppDispatch, useAppSelector } from '@/hooks';
 
 export default function LoginScreen() {
   //? Assets
@@ -10,7 +11,6 @@ export default function LoginScreen() {
 
   //? Store
   const { token, status } = useAppSelector(state => state.user)
-  
 
   //? Handlers
   const onLogIn = async () => {
@@ -18,9 +18,8 @@ export default function LoginScreen() {
       await dispatch(setTokenAsync('123456')).unwrap()
       router.back()
     } catch (e) {
-      // TODO: deal with the error 
+      // TODO: deal with the error
     }
-    
   }
 
   return (
@@ -29,5 +28,5 @@ export default function LoginScreen() {
         <Text>Login: {status}</Text>
       </Pressable>
     </View>
-  );
+  )
 }

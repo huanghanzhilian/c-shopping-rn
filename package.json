@@ -6,7 +6,10 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.+(js|ts|jsx|tsx)'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -27,6 +30,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-universe": "^12.0.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
     "tailwindcss": "^3.3.2"
   },
   "private": true,

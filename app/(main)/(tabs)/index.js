@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
-import { Link } from 'expo-router';
+import { Link } from 'expo-router'
+import { View, Text } from 'react-native'
 
 export default function FeedScreen() {
   return (
@@ -15,5 +15,5 @@ export default function FeedScreen() {
       <Link href="/login">go to Login</Link>
       <Link href="/register">go to Register</Link>
     </View>
-  );
+  )
 }

@@ -1,10 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const token = ''
 const initialState = {
   token,
-  status: 'idle'
+  status: 'idle',
 }
 
 const userSlice = createSlice({
@@ -15,18 +15,18 @@ const userSlice = createSlice({
       state.token = action.payload
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(setTokenAsync.pending, (state, action) => {
-        state.status = "loading";
+        state.status = 'loading'
       })
       .addCase(setTokenAsync.rejected, (state, action) => {
-        state.status = "failed";
+        state.status = 'failed'
       })
       .addCase(setTokenAsync.fulfilled, (state, action) => {
-        state.status = "idle";
-      });
-  }
+        state.status = 'idle'
+      })
+  },
 })
 
 export const setTokenAsync = createAsyncThunk(
@@ -41,7 +41,6 @@ export const setTokenAsync = createAsyncThunk(
     }
   }
 )
-
 
 export const { setToken } = userSlice.actions
 
