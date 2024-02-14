@@ -1,11 +1,11 @@
 import { Tabs } from 'expo-router';
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, Entypo, MaterialIcons, Feather } from "@expo/vector-icons";
 
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#05BFDB",
+        tabBarActiveTintColor: "#000000",
       }}
     >
       <Tabs.Screen
@@ -13,7 +13,7 @@ export default function TabsLayout() {
         options={{
           title: "feed",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="home" size={24} color={color} />
+            <Entypo name="home" size={24} color={color} />
           ),
         }}
       />
@@ -21,7 +21,7 @@ export default function TabsLayout() {
         name="category"
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="search" size={24} color={color} />
+            <MaterialIcons name="category" size={24} color={color} />
           ),
         }}
       />
@@ -29,7 +29,7 @@ export default function TabsLayout() {
         name="cart"
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="bell" size={24} color={color} />
+            <Feather name="shopping-cart" size={24} color={color} />
           ),
         }}
       />

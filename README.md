@@ -1,4 +1,4 @@
-```markdown
+
 # C-Shopping React Native App
 
 This is a React Native mobile application based on the C-Shopping open-source project. It allows users to browse products, view categories, search for items, and explore recommended products.
@@ -45,7 +45,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+
 
 This README provides a brief overview of the project's code structure and how to install and run the React Native app locally. Adjustments can be made to tailor it further to your specific project.
 
