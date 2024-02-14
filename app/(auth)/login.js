@@ -9,19 +9,6 @@ export default function LoginScreen() {
   const dispatch = useAppDispatch()
   const router = useRouter()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   //? Store
   const { status } = useAppSelector(state => state.user)
 
