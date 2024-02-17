@@ -1,6 +1,7 @@
 //* OTHER COMPONENTS
 export { default as Search } from './Search'
 export { default as Categories } from './Categories'
+export { default as FeedHeader } from './FeedHeader'
 
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'
