@@ -10,7 +10,7 @@ export default function Search(props) {
   return (
     <TouchableOpacity
       onPress={handleCartClick}
-      className="flex flex-row flex-grow rounded-md bg-zinc-200/80 justify-between items-center p-1"
+      className="flex flex-row rounded-md bg-zinc-200/80 justify-between items-center p-1"
     >
       <Text className="flex-grow py-1 px-3 text-left bg-transparent outline-none cursor-pointer text-gray-400 focus:border-none">
         善假于物，用好搜索...
