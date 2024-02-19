@@ -14,6 +14,8 @@ export { default as BannerTwo } from './banners/BannerTwo'
 
 //* PRODUCT COMPONENTS
 export { default as MostFavouraiteProducts } from './product/MostFavouraiteProducts'
+export { default as DiscountProduct } from './product/DiscountProduct'
+export { default as ProductPrice } from './product/ProductPrice'
 
 //* SVGs
 export { default as Logo } from './svgs/logo.svg'

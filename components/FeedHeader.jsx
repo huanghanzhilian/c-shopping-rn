@@ -20,14 +20,14 @@ export default function FeedHeader() {
         <View className="flex flex-row space-x-3">
           <TouchableOpacity
             onPress={() => {
-              handleIconClick('/cart')
+              handleIconClick('/notice')
             }}
           >
             <Ionicons name="notifications-outline" size={24} color="black" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              handleIconClick('/about')
+              handleIconClick('/cart')
             }}
           >
             <AntDesign name="shoppingcart" size={24} color="black" />

@@ -56,7 +56,7 @@ const DATA = [
 
 export default function Categories(props) {
   return (
-    <View className="mt-3">
+    <View className="mt-6">
       <View className="flex flex-row justify-between items-center mb-3">
         <Text className="mr-auto text-base font-bold">分类</Text>
         <TouchableOpacity className="flex flex-row items-center space-x-1">
