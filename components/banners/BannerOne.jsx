@@ -30,7 +30,7 @@ export default function BannerOne() {
           <AntDesign name="arrowright" size={14} color="rgb(163 163 163)" />
         </TouchableOpacity>
       </View>
-      <View className=" w-full flex flex-row flex-wrap">
+      <View className="w-full flex flex-row flex-wrap">
         {DATA.map((item, index) => (
           <View
             className={`w-[49%] h-24 mr-[2%] mb-[2%] ${index % 2 === 1 ? 'mr-0 mb-0' : ''}`}

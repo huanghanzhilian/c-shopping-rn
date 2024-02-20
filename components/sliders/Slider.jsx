@@ -3,10 +3,9 @@ import Swiper from 'react-native-swiper'
 
 export default function Slider() {
   const images = [
-    'https://source.unsplash.com/1024x768/?nature',
-    'https://source.unsplash.com/1024x768/?water',
-    'https://source.unsplash.com/1024x768/?girl',
-    'https://source.unsplash.com/1024x768/?tree',
+    'http://huanghanzhilian-test.oss-cn-beijing.aliyuncs.com/shop/upload/image/sliders/hUX6oL-lCKOKPYbZ5j4rx.webp',
+    'http://huanghanzhilian-test.oss-cn-beijing.aliyuncs.com/shop/upload/image/sliders/g8FHsxbCGw82WzjmamElL.webp',
+    'http://huanghanzhilian-test.oss-cn-beijing.aliyuncs.com/shop/upload/image/sliders/hWQ4-Mx69MyLJbZAThWEt.webp',
   ]
   return (
     <View className="mt-3 rounded-lg overflow-hidden">

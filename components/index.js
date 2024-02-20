@@ -3,6 +3,9 @@ export { default as Search } from './Search'
 export { default as Categories } from './Categories'
 export { default as FeedHeader } from './FeedHeader'
 
+//* COMMON COMPONENTS
+export { default as Skeleton } from './common/Skeleton'
+
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'
 export { default as DiscountSlider } from './sliders/DiscountSlider'

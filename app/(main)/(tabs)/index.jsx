@@ -20,6 +20,7 @@ export default function FeedScreen() {
           header: props => <FeedHeader {...props} title="Home" icon="menu-outline" />,
         }}
       />
+
       <MainSlider />
       <Categories />
       <DiscountSlider />
