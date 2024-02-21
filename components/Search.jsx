@@ -4,9 +4,12 @@ import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 export default function Search(props) {
+  //? Handers
   const handleCartClick = () => {
     router.push('/search')
   }
+
+  //? Render(s)
   return (
     <TouchableOpacity
       onPress={handleCartClick}

@@ -1,8 +1,9 @@
-import { AntDesign, FontAwesome } from '@expo/vector-icons'
+import { FontAwesome } from '@expo/vector-icons'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import DiscountProduct from './DiscountProduct'
 import ProductPrice from './ProductPrice'
+import FeedSectionContainer from '../common/FeedSectionContainer'
 import Skeleton from '../common/Skeleton'
 
 import { useGetProductsQuery } from '@/services'
@@ -11,10 +12,11 @@ export default function MostFavouraiteProducts(props) {
   //? Props
   const { categorySlug } = props
 
+  //? Get Products Query
   const { products, isLoading } = useGetProductsQuery(
     {
       sort: 5,
-      category: 'choiceshop',
+      category: categorySlug,
     },
     {
       selectFromResult: ({ data, isLoading }) => ({
@@ -26,14 +28,7 @@ export default function MostFavouraiteProducts(props) {
 
   //? Render(s)
   return (
-    <View className="mt-6">
-      <View className="flex flex-row justify-between items-center mb-3">
-        <Text className="mr-auto text-base font-bold">热销商品</Text>
-        <TouchableOpacity className="flex flex-row items-center space-x-1">
-          <Text className="text-neutral-400 text-base">更多</Text>
-          <AntDesign name="arrowright" size={14} color="rgb(163 163 163)" />
-        </TouchableOpacity>
-      </View>
+    <FeedSectionContainer title="热销商品">
       <View className="w-full flex flex-row flex-wrap">
         {isLoading
           ? Array(10)
@@ -93,6 +88,6 @@ export default function MostFavouraiteProducts(props) {
               </TouchableOpacity>
             ))}
       </View>
-    </View>
+    </FeedSectionContainer>
   )
 }

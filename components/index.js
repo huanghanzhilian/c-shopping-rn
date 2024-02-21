@@ -5,6 +5,11 @@ export { default as FeedHeader } from './FeedHeader'
 
 //* COMMON COMPONENTS
 export { default as Skeleton } from './common/Skeleton'
+export { default as FeedSectionContainer } from './common/FeedSectionContainer'
+
+//* LOADING
+export { default as Loading } from './loading/Loading'
+export { default as BigLoading } from './loading/BigLoading'
 
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'

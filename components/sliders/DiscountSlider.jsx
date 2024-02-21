@@ -1,56 +1,95 @@
-import { AntDesign } from '@expo/vector-icons'
 import { FlashList } from '@shopify/flash-list'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { router } from 'expo-router'
+import { View, Image } from 'react-native'
 
+import FeedSectionContainer from '../common/FeedSectionContainer'
+import Skeleton from '../common/Skeleton'
 import DiscountProduct from '../product/DiscountProduct'
 import ProductPrice from '../product/ProductPrice'
-const DATA = [
-  {
-    title: '时尚与服装',
-    uri: 'http://shop.huanghanlian.com/_next/image?url=http%3A%2F%2Fhuanghanzhilian-test.oss-cn-beijing.aliyuncs.com%2Fshop%2Fupload%2Fimage%2F%2Fproducts%2FS-0bkuZHpxoB0-eaxVrLe.webp&w=3840&q=100',
-  },
-  {
-    title: '数码商品',
-    uri: 'http://shop.huanghanlian.com/_next/image?url=http%3A%2F%2Fhuanghanzhilian-test.oss-cn-beijing.aliyuncs.com%2Fshop%2Fupload%2Fimage%2F%2Fproducts%2FX9AGWqXgzr7bgrc_-vL9q.webp&w=3840&q=100',
-  },
-  {
-    title: '时尚与服装',
-    uri: 'http://shop.huanghanlian.com/_next/image?url=http%3A%2F%2Fhuanghanzhilian-test.oss-cn-beijing.aliyuncs.com%2Fshop%2Fupload%2Fimage%2F%2Fproducts%2Fn0sPwJaCzVYI4yZN_EANK.webp&w=3840&q=100',
-  },
-  {
-    title: '数码商品',
-    uri: 'http://shop.huanghanlian.com/_next/image?url=http%3A%2F%2Fhuanghanzhilian-test.oss-cn-beijing.aliyuncs.com%2Fshop%2Fupload%2Fimage%2F%2Fproducts%2FeIleut5TAwdnYitRE_bKU.webp&w=3840&q=100',
-  },
-]
-export default function DiscountSlider() {
+
+import { useGetProductsQuery } from '@/services'
+
+export default function DiscountSlider(props) {
+  //? Props
+  const { currentCategory } = props
+
+  //? Get Products Query
+  const { products, isLoading } = useGetProductsQuery(
+    {
+      sort: 6,
+      category: currentCategory?.slug,
+      page_size: 15,
+      discount: true,
+    },
+    {
+      selectFromResult: ({ data, isLoading }) => ({
+        products: data?.data?.products || [],
+        isLoading,
+      }),
+    }
+  )
+
+  //? handlers
+  const handleJumptoMore = () => {
+    router.push('/about')
+  }
+
+  //? Render(s)
   return (
-    <View className="mt-6">
-      <View className="flex flex-row justify-between items-center mb-3">
-        <Text className="mr-auto text-base font-bold">特价活动</Text>
-        <TouchableOpacity className="flex flex-row items-center space-x-1">
-          <Text className="text-neutral-400 text-base">更多</Text>
-          <AntDesign name="arrowright" size={14} color="rgb(163 163 163)" />
-        </TouchableOpacity>
-      </View>
-      <FlashList
-        data={DATA}
-        renderItem={({ item }) => (
-          <View className="w-fit h-fit bg-white mx-0.5 py-3">
-            <Image
-              source={{
-                uri: item.uri,
-              }}
-              className="w-32 h-32"
-            />
-            <View className="flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2 ">
-              <DiscountProduct discount={90} />
-              <ProductPrice inStock={33} discount={90} price={100} />
+    <FeedSectionContainer title="折扣商品" showMore onJumptoMore={handleJumptoMore}>
+      {isLoading ? (
+        <FlashList
+          data={Array(10).fill('_')}
+          renderItem={({ item, index }) => (
+            <Skeleton.Items className="mr-2" key={index}>
+              <Skeleton.Item
+                height=" h-32 lg:h-36"
+                width="w-32 lg:w-36"
+                animated="background"
+                className="rounded-md mx-auto"
+              />
+              <Skeleton.Item
+                height="h-5"
+                width="w-32"
+                animated="background"
+                className="mt-4 mx-auto"
+              />
+              <Skeleton.Item
+                height="h-5"
+                width="w-20"
+                animated="background"
+                className="mt-4 mx-auto"
+              />
+            </Skeleton.Items>
+          )}
+          horizontal
+          estimatedItemSize={200}
+        />
+      ) : !products.length ? null : (
+        <FlashList
+          data={products}
+          renderItem={({ item }) => (
+            <View className="w-fit h-fit bg-white mx-0.5 py-3">
+              <Image
+                source={{
+                  uri: item?.images[0]?.url,
+                }}
+                className="w-32 h-32"
+              />
+              <View className="flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2 ">
+                <DiscountProduct discount={item.discount} />
+                <ProductPrice
+                  inStock={item?.inStock}
+                  discount={item?.discount}
+                  price={item?.price}
+                />
+              </View>
             </View>
-          </View>
-        )}
-        horizontal
-        estimatedItemSize={200}
-      />
-    </View>
+          )}
+          horizontal
+          estimatedItemSize={200}
+        />
+      )}
+    </FeedSectionContainer>
   )
 }

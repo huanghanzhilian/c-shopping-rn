@@ -7,12 +7,15 @@ import Search from './Search'
 import Logo from './svgs/logo.svg'
 
 export default function FeedHeader() {
+  //? Assets
   const insets = useSafeAreaInsets()
 
+  //? Handers
   const handleIconClick = path => {
     router.push(path)
   }
 
+  //? Render(s)
   return (
     <View style={{ paddingTop: insets.top }} className="p-3 bg-white shadow-sm">
       <View className="flex flex-row justify-between">

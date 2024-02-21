@@ -14,7 +14,7 @@ export default function AboutScreen() {
       >
         Update the title
       </Text>
-      <Text>process.env.EXPO_PUBLIC_API_KEY: {process.env.EXPO_PUBLIC_API_KEY}</Text>
+      <Text>process.env.EXPO_PUBLIC_BASE_URL: {process.env.EXPO_PUBLIC_BASE_URL}</Text>
     </View>
   )
 }

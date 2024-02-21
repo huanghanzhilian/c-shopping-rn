@@ -29,7 +29,8 @@
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",
     "react-native-swiper": "^1.6.0",
-    "react-redux": "^9.1.0"
+    "react-redux": "^9.1.0",
+    "react-native-reanimated": "~3.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

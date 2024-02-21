@@ -1,7 +1,7 @@
-import { AntDesign } from '@expo/vector-icons'
 import { FlashList } from '@shopify/flash-list'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image } from 'react-native'
 
+import FeedSectionContainer from '../common/FeedSectionContainer'
 import Skeleton from '../common/Skeleton'
 
 import { useGetProductsQuery } from '@/services'
@@ -18,11 +18,12 @@ export default function BestSellsSlider(props) {
   //? Props
   const { categorySlug } = props
 
+  //? Get Products Query
   const { products, isLoading } = useGetProductsQuery(
     {
       sort: 2,
       page_size: 15,
-      category: 'choiceshop',
+      category: categorySlug,
     },
     {
       selectFromResult: ({ data, isLoading }) => ({
@@ -35,14 +36,7 @@ export default function BestSellsSlider(props) {
   //? Render(s)
 
   return (
-    <View className="mt-6">
-      <View className="flex flex-row justify-between items-center mb-3">
-        <Text className="mr-auto text-base font-bold">畅销商品</Text>
-        <TouchableOpacity className="flex flex-row items-center space-x-1">
-          <Text className="text-neutral-400 text-base">更多</Text>
-          <AntDesign name="arrowright" size={14} color="rgb(163 163 163)" />
-        </TouchableOpacity>
-      </View>
+    <FeedSectionContainer title="畅销商品">
       {isLoading ? (
         Array(2)
           .fill('_')
@@ -87,6 +81,6 @@ export default function BestSellsSlider(props) {
           estimatedItemSize={200}
         />
       )}
-    </View>
+    </FeedSectionContainer>
   )
 }
