@@ -4,9 +4,9 @@ This is a React Native mobile application based on the C-Shopping open-source pr
 
 ## Feature Demo
 
-| Module |                                                                                                |
-| ------ | ---------------------------------------------------------------------------------------------- |
-| feed   | ![](https://www.cheerspublishing.com/uploads/article/d20ae2ce-a707-4541-9cec-ee58227b4e82.png) |
+| Module | loading                                                                                        | skeleton                                                                                       | success                                                                                        | error or empty                                                                                 |
+| ------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| feed   | ![](https://www.cheerspublishing.com/uploads/article/d6032a24-d134-4b8e-9943-f4ef875bf2f1.png) | ![](https://www.cheerspublishing.com/uploads/article/d09fc3af-1bf7-49fa-8957-227a3add172a.png) | ![](https://www.cheerspublishing.com/uploads/article/efee1d79-9c95-4be5-9a6a-ec5160b7e6ae.png) | ![](https://www.cheerspublishing.com/uploads/article/7e0c2e4b-a5b9-483f-ad2c-1f55c3b1f9b1.png) |
 
 ## Installation
 

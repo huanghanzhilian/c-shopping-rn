@@ -7,7 +7,11 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 
-export default function Loading() {
+export default function Loading(props) {
+  //? Props
+  const { style } = props
+
+  //? Assets
   const onePoint = useSharedValue(0)
   const twoPoint = useSharedValue(0)
   const threePoint = useSharedValue(0)
@@ -37,7 +41,7 @@ export default function Loading() {
   }, [])
 
   return (
-    <View className="w-[80] h-[24] relative bg-black">
+    <View className="w-[80] h-[24] relative inline-block" style={style}>
       <Animated.View
         className="w-[13] h-[13] bg-white rounded-full absolute top-[15%] left-[8]"
         style={animatedOnePointStyles}
