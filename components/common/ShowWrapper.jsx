@@ -20,15 +20,16 @@ export default function ShowWrapper(props) {
 
   //? Render(s)
   return (
-    <>
+    <View className="h-full bg-white">
       {isError ? (
         <View className="py-20 mx-auto space-y-3 text-center w-fit">
           <Text className="text-sm">出现异常</Text>
           <Text className="text-sm text-red-500">{error?.error}</Text>
-          <TouchableOpacity className="mx-auto" onClick={refetch}>
-            <Text className="text-sm text-white py-3 px-8 flex-center bg-red-500 rounded-full">
-              重试
-            </Text>
+          <TouchableOpacity
+            className="mx-auto py-2 px-8 flex-center bg-red-500 rounded-full"
+            onPress={refetch}
+          >
+            <Text className="text-sm text-white">重试</Text>
           </TouchableOpacity>
         </View>
       ) : isFetching ? (
@@ -40,6 +41,6 @@ export default function ShowWrapper(props) {
       ) : isSuccess && type === 'detail' ? (
         <>{children}</>
       ) : null}
-    </>
+    </View>
   )
 }

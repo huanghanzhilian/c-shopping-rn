@@ -15,7 +15,11 @@ export default function LoginScreen() {
   //? Handlers
   const onLogIn = async () => {
     try {
-      await dispatch(setTokenAsync('123456')).unwrap()
+      await dispatch(
+        setTokenAsync(
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYWVhODk4Njg2NjVhOGEyMjliODdhMCIsImlhdCI6MTcwODU5MDIzMSwiZXhwIjoxNzA4Njc2NjMxfQ.f5y6GIkfy6JcTPPcZYJfidiiKn13ceyYDtps3TP0fqg'
+        )
+      ).unwrap()
       router.back()
     } catch (error) {}
   }

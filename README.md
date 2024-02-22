@@ -6,7 +6,7 @@ This is a React Native mobile application based on the C-Shopping open-source pr
 
 | Module | loading                                                                                        | skeleton                                                                                       | success                                                                                        | error or empty                                                                                 |
 | ------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| feed   | ![](https://www.cheerspublishing.com/uploads/article/d6032a24-d134-4b8e-9943-f4ef875bf2f1.png) | ![](https://www.cheerspublishing.com/uploads/article/d09fc3af-1bf7-49fa-8957-227a3add172a.png) | ![](https://www.cheerspublishing.com/uploads/article/efee1d79-9c95-4be5-9a6a-ec5160b7e6ae.png) | ![](https://www.cheerspublishing.com/uploads/article/7e0c2e4b-a5b9-483f-ad2c-1f55c3b1f9b1.png) |
+| feed   | ![](https://www.cheerspublishing.com/uploads/article/e1f91a01-bf5e-46f4-8cbd-7f485e5039ba.png) | ![](https://www.cheerspublishing.com/uploads/article/d09fc3af-1bf7-49fa-8957-227a3add172a.png) | ![](https://www.cheerspublishing.com/uploads/article/efee1d79-9c95-4be5-9a6a-ec5160b7e6ae.png) | ![](https://www.cheerspublishing.com/uploads/article/c3d29b64-c6be-4716-8b4d-30becfbe4246.png) |
 
 ## Installation
 

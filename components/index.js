@@ -7,11 +7,15 @@ export { default as FeedHeader } from './FeedHeader'
 export { default as Skeleton } from './common/Skeleton'
 export { default as FeedSectionContainer } from './common/FeedSectionContainer'
 export { default as ShowWrapper } from './common/ShowWrapper'
+export { default as AuthWrapper } from './common/AuthWrapper'
 
 //* LOADING
 export { default as Loading } from './loading/Loading'
 export { default as BigLoading } from './loading/BigLoading'
 export { default as PageLoading } from './loading/PageLoading'
+
+//* RENDERER
+export { default as SigninPromoRenderer } from './renderer/SigninPromoRenderer'
 
 //* EMPTY LIST COMPONENTS
 export { default as EmptyCustomList } from './emptyList/EmptyCustomList'
