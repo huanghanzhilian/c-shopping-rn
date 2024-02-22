@@ -8,6 +8,7 @@ export { default as Skeleton } from './common/Skeleton'
 export { default as FeedSectionContainer } from './common/FeedSectionContainer'
 export { default as ShowWrapper } from './common/ShowWrapper'
 export { default as AuthWrapper } from './common/AuthWrapper'
+export { default as AuthMustWrapper } from './common/AuthMustWrapper'
 
 //* LOADING
 export { default as Loading } from './loading/Loading'

@@ -14,15 +14,27 @@ export default function CategoryScreen() {
     })
   }
 
+  const handleAuthJump = () => {
+    mustAuthAction(() => {
+      router.push('/account')
+    })
+  }
+
   //? Render(s)
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View className="flex-1 items-center justify-center bg-white space-y-4">
       <Text>Category screen</Text>
+      <Pressable
+        className=" w-fit py-2 px-8 flex-center bg-red-500 rounded-full"
+        onPress={handleAuthJump}
+      >
+        <Text className="text-sm text-white">去用户中心(跳转前校验)</Text>
+      </Pressable>
       <Pressable
         className=" w-fit py-2 px-8 flex-center bg-red-500 rounded-full"
         onPress={handleJumpMore}
       >
-        <Text className="text-sm text-white">去用户中心</Text>
+        <Text className="text-sm text-white">去用户中心(跳转后校验)</Text>
       </Pressable>
     </View>
   )

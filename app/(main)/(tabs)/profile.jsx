@@ -8,7 +8,7 @@ export default function ProfileScreen() {
   return (
     <>
       <Stack.Screen />
-      <AuthWrapper>
+      <AuthWrapper tips="享受购物">
         <View className="flex-1 items-center justify-center bg-white">
           <Text>Profile screen</Text>
           <Text>account</Text>
