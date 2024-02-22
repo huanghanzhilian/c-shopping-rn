@@ -1,3 +1,5 @@
+import { router } from 'expo-router'
+
 import { useAppDispatch } from './useRedux'
 import useVerify from './useVerify'
 
@@ -12,7 +14,24 @@ export default function useUserInfo() {
     skip: !isVerify,
   })
 
+  const isLoginVerify = !isVerify ? false : isLoading ? false : !!data?.data
+
+  const mustAuthAction = nextAction => {
+    if (!isLoginVerify) {
+      return router.push('/login')
+    }
+    nextAction()
+  }
+
   if (isError) dispatch(setTokenAsync(''))
 
-  return { userInfo: data?.data, isVerify, isLoading, error, isError }
+  return {
+    userInfo: data?.data,
+    isVerify,
+    isLoginVerify,
+    mustAuthAction,
+    isLoading,
+    error,
+    isError,
+  }
 }

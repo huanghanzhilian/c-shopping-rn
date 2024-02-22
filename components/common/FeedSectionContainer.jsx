@@ -6,7 +6,7 @@ const FeedSectionContainer = props => {
   const { title, showMore = false, onJumptoMore, children, style = {} } = props
 
   //? Handlers
-  const handleJumptoMore = () => {
+  const handleJumpMore = () => {
     onJumptoMore()
   }
 
@@ -17,7 +17,7 @@ const FeedSectionContainer = props => {
         <Text className="mr-auto text-base font-bold">{title}</Text>
         {showMore && (
           <TouchableOpacity
-            onPress={handleJumptoMore}
+            onPress={handleJumpMore}
             className="flex flex-row items-center space-x-1"
           >
             <Text className="text-neutral-400 text-base">更多</Text>

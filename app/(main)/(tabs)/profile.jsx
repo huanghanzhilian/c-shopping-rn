@@ -4,6 +4,7 @@ import { View, Text } from 'react-native'
 import { AuthWrapper } from '@/components'
 
 export default function ProfileScreen() {
+  //？Render(s)
   return (
     <>
       <Stack.Screen />

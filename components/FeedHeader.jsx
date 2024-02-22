@@ -10,7 +10,7 @@ export default function FeedHeader() {
   //? Assets
   const insets = useSafeAreaInsets()
 
-  //? Handers
+  //? Handlers
   const handleIconClick = path => {
     router.push(path)
   }
