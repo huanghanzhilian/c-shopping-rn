@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router'
 import { Pressable, Text, View } from 'react-native'
 
+import { TextField } from '@/components'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { setTokenAsync } from '@/store'
 
@@ -25,7 +26,8 @@ export default function LoginScreen() {
   }
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View className="flex-1 w-[100vw] items-center justify-center bg-white">
+      <TextField />
       <Pressable onPress={onLogIn}>
         <Text>Login: {status}</Text>
       </Pressable>
