@@ -9,9 +9,7 @@ export default function CategoryScreen() {
 
   //? Handlers
   const handleJumpMore = () => {
-    mustAuthAction(() => {
-      router.push('/account')
-    })
+    router.push('/account')
   }
 
   const handleAuthJump = () => {

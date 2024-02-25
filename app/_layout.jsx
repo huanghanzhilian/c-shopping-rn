@@ -3,6 +3,7 @@ import { Stack } from 'expo-router/stack'
 import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Toast from 'react-native-toast-message'
 import { Provider } from 'react-redux'
 
 import { store, setToken } from '@/store'
@@ -45,6 +46,7 @@ export default function RootLayout() {
             }}
           />
         </Stack>
+        <Toast />
       </SafeAreaProvider>
     </Provider>
   )

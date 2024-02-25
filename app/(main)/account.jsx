@@ -27,16 +27,20 @@ export default function AccountScreen() {
   return (
     <AuthMustWrapper>
       <View className="flex-1 bg-white space-y-4">
-        <Text>Account Screen</Text>
-        <Text>token: {token}</Text>
-        <Text>name: {userInfo.name}</Text>
-        <Text>mobile: {userInfo.mobile}</Text>
-        <Pressable
-          className=" w-fit py-2 px-8 flex-center bg-red-500 rounded-full"
-          onPress={onLogOut}
-        >
-          <Text className="text-sm text-white">Log Out {status}</Text>
-        </Pressable>
+        {userInfo && (
+          <>
+            <Text>Account Screen</Text>
+            <Text>token: {token}</Text>
+            <Text>name: {userInfo.name}</Text>
+            <Text>mobile: {userInfo.mobile}</Text>
+            <Pressable
+              className=" w-fit py-2 px-8 flex-center bg-red-500 rounded-full"
+              onPress={onLogOut}
+            >
+              <Text className="text-sm text-white">Log Out {status}</Text>
+            </Pressable>
+          </>
+        )}
       </View>
     </AuthMustWrapper>
   )

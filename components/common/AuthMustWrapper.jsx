@@ -9,6 +9,9 @@ export default function AuthMustWrapper({ children }) {
 
   //? Render(s)
   if (isLoading) return <BigLoading />
-  if (!isVerify || !userInfo) return router.replace('/login')
-  return <>{children}</>
+  if (!isVerify || !userInfo) {
+    router.replace('/login')
+    return null
+  }
+  if (isVerify && userInfo) return <>{children}</>
 }
