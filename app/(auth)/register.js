@@ -86,6 +86,8 @@ export default function RegisterScreen() {
               errors={formErrors.email}
               placeholder="请输入您的账户邮箱"
               name="email"
+              keyboardType="email-address"
+              autoCapitalize="none"
               control={control}
             />
 

@@ -2,8 +2,10 @@
 export { default as Search } from './Search'
 export { default as Categories } from './Categories'
 export { default as FeedHeader } from './FeedHeader'
+export { default as Logout } from './Logout'
 
 //* COMMON COMPONENTS
+export { default as Icons } from './common/Icons'
 export { default as Skeleton } from './common/Skeleton'
 export { default as FeedSectionContainer } from './common/FeedSectionContainer'
 export { default as ShowWrapper } from './common/ShowWrapper'
@@ -12,6 +14,7 @@ export { default as AuthMustWrapper } from './common/AuthMustWrapper'
 export { default as TextField } from './common/TextField'
 export { default as DisplayError } from './common/DisplayError'
 export { default as HandleResponse } from './common/HandleResponse'
+export { default as BoxLink } from './common/BoxLink'
 export * from './common/Buttons'
 
 //* LOADING
