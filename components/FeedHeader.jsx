@@ -1,9 +1,9 @@
-import { AntDesign, Ionicons } from '@expo/vector-icons'
 import { router } from 'expo-router'
 import { TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Search from './Search'
+import Icons from './common/Icons'
 import Logo from './svgs/logo.svg'
 
 export default function FeedHeader() {
@@ -26,14 +26,14 @@ export default function FeedHeader() {
               handleIconClick('/notice')
             }}
           >
-            <Ionicons name="notifications-outline" size={24} color="black" />
+            <Icons.Ionicons name="notifications-outline" size={24} color="black" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               handleIconClick('/cart')
             }}
           >
-            <AntDesign name="shoppingcart" size={24} color="black" />
+            <Icons.AntDesign name="shoppingcart" size={24} color="black" />
           </TouchableOpacity>
         </View>
       </View>

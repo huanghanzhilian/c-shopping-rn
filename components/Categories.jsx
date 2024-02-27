@@ -26,7 +26,7 @@ export default function Categories(props) {
                   className="w-full h-full"
                 />
               </View>
-              <Text>{item.title}</Text>
+              <Text className="text-gray-700">{item.name}</Text>
             </View>
           )}
           estimatedItemSize={400}
