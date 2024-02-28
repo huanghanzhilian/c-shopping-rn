@@ -45,6 +45,7 @@ export default function RootLayout() {
               headerShown: false,
             }}
           />
+          <Stack.Screen name="(main)/products/index" getId={({ params }) => params.category} />
         </Stack>
         <Toast />
       </SafeAreaProvider>

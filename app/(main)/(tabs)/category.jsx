@@ -1,6 +1,6 @@
-import { Stack, router } from 'expo-router'
+import { Link, Stack, router } from 'expo-router'
 import { useEffect, useState } from 'react'
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity, Pressable } from 'react-native'
 
 import { Icons, ShowWrapper } from '@/components'
 import { useGetCategoriesQuery } from '@/services'
@@ -92,29 +92,47 @@ export default function CategoryScreen() {
                     if (levelTwoCategory.parent === activeMinCat._id) {
                       return (
                         <View key={levelTwoCategory._id}>
-                          <Text className="break-words py-2 text-neutral-900">
-                            {levelTwoCategory.name}
-                          </Text>
+                          <Link
+                            href={{
+                              pathname: '/products',
+                              params: { category: levelTwoCategory.slug },
+                            }}
+                            asChild
+                          >
+                            <Pressable>
+                              <Text className="break-words py-2 text-neutral-900">
+                                {levelTwoCategory.name}
+                              </Text>
+                            </Pressable>
+                          </Link>
 
                           <View className="flex flex-row flex-wrap">
                             {categories
                               .filter(category => category.parent === levelTwoCategory._id)
                               .map((levelThreeCategory, index) => (
-                                <TouchableOpacity
+                                <Link
+                                  href={{
+                                    pathname: '/products',
+                                    params: { category: levelThreeCategory.slug },
+                                  }}
+                                  asChild
                                   key={levelThreeCategory._id}
-                                  className={`flex items-center w-[26%] mr-[11%] space-y-2 my-4 ${index % 3 === 2 ? 'mr-0' : ''}`}
                                 >
-                                  <View className="flex items-center justify-center w-full aspect-square rounded-full border-solid border-2 border-slate-200 overflow-hidden">
-                                    <Image
-                                      key={index}
-                                      source={{
-                                        uri: levelThreeCategory.image,
-                                      }}
-                                      className="w-[70%] h-[70%]"
-                                    />
-                                  </View>
-                                  <Text className="text-gray-700">{levelThreeCategory.name}</Text>
-                                </TouchableOpacity>
+                                  <TouchableOpacity
+                                    className={`flex items-center w-[26%] mr-[11%] space-y-2 my-4 ${index % 3 === 2 ? 'mr-0' : ''}`}
+                                  >
+                                    <View className="flex items-center justify-center w-full aspect-square rounded-full border-solid border-2 border-slate-200 overflow-hidden">
+                                      <Image
+                                        key={index}
+                                        source={{
+                                          uri: levelThreeCategory.image,
+                                        }}
+                                        className="w-[70%] h-[70%]"
+                                      />
+                                    </View>
+                                    <Text className="text-gray-700">{levelThreeCategory.name}</Text>
+                                  </TouchableOpacity>
+                                </Link>
                               ))}
                           </View>
                         </View>

@@ -1,6 +1,6 @@
 import { FlashList } from '@shopify/flash-list'
-import { router } from 'expo-router'
-import { View, Image } from 'react-native'
+import { Link, router } from 'expo-router'
+import { View, Image, Pressable, TouchableOpacity } from 'react-native'
 
 import FeedSectionContainer from '../common/FeedSectionContainer'
 import Skeleton from '../common/Skeleton'
@@ -69,22 +69,31 @@ export default function DiscountSlider(props) {
         <FlashList
           data={products}
           renderItem={({ item }) => (
-            <View className="w-fit h-fit bg-white mx-0.5 py-3">
-              <Image
-                source={{
-                  uri: item?.images[0]?.url,
-                }}
-                className="w-32 h-32"
-              />
-              <View className="flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2 ">
-                <DiscountProduct discount={item.discount} />
-                <ProductPrice
-                  inStock={item?.inStock}
-                  discount={item?.discount}
-                  price={item?.price}
+            <Link
+              href={{
+                pathname: '/products/[id]',
+                params: { id: item._id },
+              }}
+              key={item._id}
+              asChild
+            >
+              <TouchableOpacity className="w-fit h-fit bg-white mx-0.5 py-3">
+                <Image
+                  source={{
+                    uri: item?.images[0]?.url,
+                  }}
+                  className="w-32 h-32"
                 />
-              </View>
-            </View>
+                <View className="flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2 ">
+                  <DiscountProduct discount={item.discount} />
+                  <ProductPrice
+                    inStock={item?.inStock}
+                    discount={item?.discount}
+                    price={item?.price}
+                  />
+                </View>
+              </TouchableOpacity>
+            </Link>
           )}
           horizontal
           estimatedItemSize={200}
