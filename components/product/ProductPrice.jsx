@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native'
 
-import { DiscountProduct } from '@/components/product/DiscountProduct'
+import DiscountProduct from './DiscountProduct'
+
 import { formatNumber } from '@/utils'
 
 const ProductPrice = props => {
@@ -18,7 +19,7 @@ const ProductPrice = props => {
       </View>
 
       {discount > 0 && (
-        <View>
+        <View className="flex flex-row">
           {singleProduct && discount > 0 && inStock !== 0 && (
             <DiscountProduct discount={discount} />
           )}

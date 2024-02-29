@@ -4,6 +4,7 @@ export { default as Categories } from './Categories'
 export { default as FeedHeader } from './FeedHeader'
 export { default as Logout } from './Logout'
 export { default as Sort } from './Sort'
+export { default as FreeShipping } from './FreeShipping'
 
 //* COMMON COMPONENTS
 export { default as Icons } from './common/Icons'
@@ -34,6 +35,7 @@ export { default as EmptyCustomList } from './emptyList/EmptyCustomList'
 export { default as Slider } from './sliders/Slider'
 export { default as DiscountSlider } from './sliders/DiscountSlider'
 export { default as BestSellsSlider } from './sliders/BestSellsSlider'
+export { default as SmilarProductsSlider } from './sliders/SmilarProductsSlider'
 
 //* BANNER COMPONENTS
 export { default as BannerOne } from './banners/BannerOne'
@@ -47,6 +49,17 @@ export { default as SubCategories } from './product/SubCategories'
 export { default as ProductCard } from './product/ProductCard'
 export { default as SpecialSell } from './product/SpecialSell'
 export { default as Depot } from './product/Depot'
+export { default as ImageGallery } from './product/ImageGallery'
+export { default as SelectColor } from './product/SelectColor'
+export { default as SelectSize } from './product/SelectSize'
+export { default as InitialStore } from './product/InitialStore'
+export { default as OutOfStock } from './product/OutOfStock'
+export { default as Info } from './product/Info'
+export { default as Description } from './product/Description'
+export { default as Specification } from './product/Specification'
+
+//* CART COMPONENTS
+export { default as AddToCartOperation } from './cart/AddToCartOperation'
 
 //* FILTER COMPONENTS
 export { default as Filter } from './filter/Filter'
