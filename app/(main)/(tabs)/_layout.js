@@ -1,12 +1,16 @@
 import { FontAwesome, Entypo, MaterialIcons, Feather } from '@expo/vector-icons'
 import { Tabs } from 'expo-router'
-
+export const unstable_settings = {
+  // Ensure any route can link back to `/`
+  initialRouteName: 'cart',
+}
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: '#000000',
       }}
+      initialRouteName="cart"
     >
       <Tabs.Screen
         name="index"

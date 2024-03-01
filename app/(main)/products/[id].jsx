@@ -1,5 +1,6 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
 import { View, Text, ScrollView } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import {
   AddToCartOperation,
@@ -9,6 +10,7 @@ import {
   Info,
   InitialStore,
   OutOfStock,
+  Reviews,
   SelectColor,
   SelectSize,
   ShowWrapper,
@@ -18,8 +20,10 @@ import {
 import { useGetSingleProductDetailQuery } from '@/services'
 
 export default function SingleProductScreen() {
+  //? Assets
   const router = useRouter()
   const { id } = useLocalSearchParams()
+  const insets = useSafeAreaInsets()
 
   //? Get Feeds Query
   const {
@@ -45,6 +49,7 @@ export default function SingleProductScreen() {
       <Stack.Screen
         options={{
           title: product?.title || '',
+          headerBackTitleVisible: false,
         }}
       />
       <ShowWrapper
@@ -55,61 +60,63 @@ export default function SingleProductScreen() {
         isSuccess={isSuccess}
         type="detail"
       >
-        <ScrollView className="bg-white">
-          <View className="py-4 flex gap-y-4">
-            <View className="h-fit">
-              <InitialStore product={product} />
-              <ImageGallery
-                images={product.images}
-                discount={product.discount}
-                inStock={product.inStock}
-                productName={product.title}
-              />
-              <View className="lg:col-span-4 ">
-                {/* title */}
-                <Text className="p-4 text-base font-semibold leading-8 tracking-wide text-black/80 ">
-                  {product.title}
-                </Text>
+        <View className="h-full bg-white relative">
+          <ScrollView className="">
+            <View className="py-4 flex gap-y-4 ">
+              <View className="h-fit">
+                <InitialStore product={product} />
+                <ImageGallery
+                  images={product.images}
+                  discount={product.discount}
+                  inStock={product.inStock}
+                  productName={product.title}
+                />
+                <View className="lg:col-span-4 ">
+                  {/* title */}
+                  <Text className="p-4 text-base font-semibold leading-8 tracking-wide text-black/80 ">
+                    {product.title}
+                  </Text>
 
-                <View className="section-divide-y h-2 bg-gray-100" />
+                  <View className="section-divide-y h-2 bg-gray-100" />
 
-                {product.inStock > 0 && product.colors.length > 0 && (
-                  <SelectColor colors={product.colors} />
-                )}
+                  {product.inStock > 0 && product.colors.length > 0 && (
+                    <SelectColor colors={product.colors} />
+                  )}
 
-                {product.inStock > 0 && product.sizes.length > 0 && (
-                  <SelectSize sizes={product.sizes} />
-                )}
-                {product.inStock === 0 && <OutOfStock />}
+                  {product.inStock > 0 && product.sizes.length > 0 && (
+                    <SelectSize sizes={product.sizes} />
+                  )}
+                  {product.inStock === 0 && <OutOfStock />}
 
-                <Info infos={product?.info} />
+                  <Info infos={product?.info} />
 
-                <FreeShipping />
+                  <FreeShipping />
+                </View>
               </View>
-            </View>
-            <View>
-              {product?.description?.length > 0 && (
-                <Description description={product.description} />
-              )}
-            </View>
-            <SmilarProductsSlider smilarProducts={smilarProducts} />
-            <View className="section-divide-y h-2 bg-gray-100" />
-            <Specification specification={product.specification} />
+              <View>
+                {product?.description?.length > 0 && (
+                  <Description description={product.description} />
+                )}
+              </View>
+              <SmilarProductsSlider smilarProducts={smilarProducts} />
+              <View className="section-divide-y h-2 bg-gray-100" />
+              <Specification specification={product.specification} />
 
-            <View className="section-divide-y h-2 bg-gray-100" />
+              <View className="section-divide-y h-2 bg-gray-100" />
 
-            {/* <Reviews
-              numReviews={product.numReviews}
-              prdouctID={product._id}
-              productTitle={product.title}
-            /> */}
-          </View>
-        </ScrollView>
-        {product.inStock > 0 && (
-          <View className="fixed bottom-0 left-0 right-0 z-20 lg:hidden">
-            <AddToCartOperation product={product} />
-          </View>
-        )}
+              <Reviews
+                numReviews={product.numReviews}
+                prdouctID={product._id}
+                productTitle={product.title}
+              />
+            </View>
+          </ScrollView>
+          {product.inStock > 0 && (
+            <View className="fixed left-0 right-0 z-20" style={{ bottom: insets.bottom }}>
+              <AddToCartOperation product={product} />
+            </View>
+          )}
+        </View>
       </ShowWrapper>
     </>
   )

@@ -1,5 +1,5 @@
 import { useController } from 'react-hook-form'
-import { TextInput, View } from 'react-native'
+import { Text, TextInput, View } from 'react-native'
 
 import DisplayError from './DisplayError'
 export default function TextField(props) {
@@ -8,7 +8,7 @@ export default function TextField(props) {
 
   //? Form Hook
   const { field } = useController({ name, control, rules: { required: true } })
-
+  console.log('inputProps', inputProps)
   //? Handlers
   const onChangeHandler = value => {
     const inputValue = value
@@ -23,8 +23,9 @@ export default function TextField(props) {
   //? Render(s)
   return (
     <View className="w-full">
+      {label && <Text className="text-xs text-gray-700 ">{label}</Text>}
       <TextInput
-        className="block w-full px-3 py-2.5 transition-colors border border-gray-200 rounded-md outline-none bg-zinc-50/30 focus:border-blue-600 leading-none"
+        className="w-full px-3 py-2.5 transition-colors border border-gray-200 rounded-md outline-none bg-zinc-50/30 focus:border-blue-600 leading-none"
         id={name}
         type={type}
         value={field?.value}
@@ -33,6 +34,7 @@ export default function TextField(props) {
         onChangeText={onChangeHandler}
         ref={field.ref}
         {...inputProps}
+        style={{ marginTop: 10 }}
       />
       <DisplayError errors={errors} />
     </View>

@@ -26,7 +26,7 @@ export default function CategoryScreen() {
   }
 
   const handleSearch = () => {
-    router.push('/search')
+    router.push('/review/detail')
   }
 
   //? Re-Renders
@@ -61,7 +61,7 @@ export default function CategoryScreen() {
         type="list"
         dataLength={categories?.length ?? 0}
       >
-        <View className="flex h-full flex-row">
+        <View className="flex h-full flex-row bg-white">
           <ScrollView className="bg-neutral-100 h-full w-3/12 shrink-0">
             {categories.length
               ? categories

@@ -71,8 +71,7 @@ export default function DiscountSlider(props) {
           renderItem={({ item }) => (
             <Link
               href={{
-                pathname: '/products/[id]',
-                params: { id: item._id },
+                pathname: `/products/${item._id}`,
               }}
               key={item._id}
               asChild

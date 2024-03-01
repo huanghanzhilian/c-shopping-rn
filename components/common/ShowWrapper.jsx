@@ -20,7 +20,7 @@ export default function ShowWrapper(props) {
 
   //? Render(s)
   return (
-    <View className="h-full bg-white">
+    <View>
       {isError ? (
         <View className="py-20 mx-auto space-y-3 text-center w-fit">
           <Text className="text-sm">出现异常</Text>

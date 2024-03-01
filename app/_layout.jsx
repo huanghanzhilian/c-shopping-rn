@@ -38,7 +38,7 @@ export default function RootLayout() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <Stack>
+        <Stack initialRouteName="cart">
           <Stack.Screen
             name="(main)/(tabs)"
             options={{
