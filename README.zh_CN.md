@@ -96,7 +96,7 @@
    npm install
    ```
 
-4. 启动开发服务器：
+4. 启动：
 
    ```
    npm start
