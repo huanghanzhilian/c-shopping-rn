@@ -8,7 +8,6 @@ export default function TextField(props) {
 
   //? Form Hook
   const { field } = useController({ name, control, rules: { required: true } })
-  console.log('inputProps', inputProps)
   //? Handlers
   const onChangeHandler = value => {
     const inputValue = value

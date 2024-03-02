@@ -55,6 +55,7 @@ export default function LoginScreen() {
       <Stack.Screen
         options={{
           title: '登录',
+          headerBackTitleVisible: false,
         }}
       />
       {/*  Handle Login Response */}

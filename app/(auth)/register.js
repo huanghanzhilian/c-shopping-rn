@@ -59,6 +59,7 @@ export default function RegisterScreen() {
       <Stack.Screen
         options={{
           title: '注册',
+          headerBackTitleVisible: false,
         }}
       />
       {/*  Handle Login Response */}

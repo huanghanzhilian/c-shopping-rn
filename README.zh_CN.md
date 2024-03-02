@@ -1,15 +1,15 @@
 <p align="center">
-<img alt="logo" src="https://github.com/huanghanzhilian/huanghanzhilian/raw/main/projects/c-shopping-rn.svg" width="300">
+	<img alt="logo" src="https://github.com/huanghanzhilian/huanghanzhilian/raw/main/projects/c-shopping-rn.svg" width="300">
 </p>
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">C-Shopping-RN APP</h1>
-<h4 align="center">This is a complete App developed by React Native (Expo). It is a beautiful e-commerce shopping application</h4>
+<h4 align="center">这个是一个React Native(Expo) 开发的完整App应用，是一个精美的电商购物应用</h4>
 
 ## README.md
 
 - en [English](README.md)
-- zh_CN [Simplified Chinese](README.zh_CN.md)
+- zh_CN [简体中文](README.zh_CN.md)
 
-## Technologies Used
+## 使用技术
 
 - React Native
 - Redux Toolkit
@@ -17,17 +17,34 @@
 - Expo Router
 - NativeWind
 
-## Preface
+## 前言
 
-`c-shopping-rn` is an exquisite e-commerce App with an elegant interface, rich functions, small size and speed. It contains the complete functions of an e-commerce platform MVP and has good aesthetic style and coding design.
+`c-shopping-rn`是一个精美的电商App，界面优雅，功能丰富，小巧迅速，包含一个电商平台MVP完整功能，具备良好的审美风格与编码设计。
 
-The project data interface comes from [c-shopping](https://github.com/huanghanzhilian/c-shopping) Next.js open source project
+项目数据接口来自于[c-shopping](https://github.com/huanghanzhilian/c-shopping) Next.js 开源项目
 
-Project portal: [https://github.com/huanghanzhilian/c-shopping](https://github.com/huanghanzhilian/c-shopping)
+项目传送门: [https://github.com/huanghanzhilian/c-shopping](https://github.com/huanghanzhilian/c-shopping)
 
-I hope those who come will gain something. The story never ends, and youth never ends.
+希望来的人，有所收获。故事不结束，青春不散场。
 
-## Feature Demo
+## 项目介绍
+
+**背景：**
+
+- 一直以来前端UI框架被固定形式占据（受限于传统的UI框架），导致视觉疲劳，在开发一些高度自定义的项目时，往往力不从心；
+- 多设备适配的web优秀项目很少，学习和维护成本较高；
+- 当项目复杂后，在组件需要调用多个 api 时会变得复杂起来，比如需要管理多个 loading 和 error 状态，这会导致产生非常多的 state 声明，还有请求取消、请求竞态等可能存在的问题也容易被忽略；
+- 随着项目复杂，样式的开发与维护变得庞大且臃肿；
+
+**意图：**
+
+改进背景中提到的问题。
+
+**目的：**
+
+打造一个完整的，适合web端的良好生态。
+
+## 项目演示
 
 | Module | loading                                                                                        | skeleton                                                                                       | success                                                                                        | error or empty                                                                                 |
 | ------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -57,39 +74,39 @@ I hope those who come will gain something. The story never ends, and youth never
 | --------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Authentication design | ![](https://www.cheerspublishing.com/uploads/article/f804fc4b-e1a8-4837-8685-2d7c38ee80ed.png) | ![](https://www.cheerspublishing.com/uploads/article/48581171-9bcd-4154-bf36-0a87a44fc1e4.png)                                                               | ![](https://www.cheerspublishing.com/uploads/article/4dd13db6-7360-4faf-9be5-7fd3fa569f50.png) | ![](https://www.cheerspublishing.com/uploads/article/b07813d7-bf0d-4fe5-80d7-625dd561e4a4.png) | ![](https://www.cheerspublishing.com/uploads/article/fbbcf9d2-d75b-418d-a942-b489b9fc13fb.png) | ![](https://www.cheerspublishing.com/uploads/article/9ac75cc6-dd60-42f4-b8a7-ebc655f13e44.png) |
 
-## Installation
+## 安装
 
-To run the C-Shopping React Native app locally, follow these steps:
+本地运行 c-shopping-rn React Native 应用程序，请按照以下步骤操作：
 
-1. Clone the repository:
+1. 克隆存储库：
 
    ```
    git clone https://github.com/huanghanzhilian/c-shopping-rn.git
    ```
 
-2. Navigate to the project directory:
+2. 导航到项目目录：
 
    ```
    cd c-shopping-rn
    ```
 
-3. Install dependencies:
+3. 安装依赖项：
 
    ```
    npm install
    ```
 
-4. Start the development server:
+4. 启动开发服务器：
 
    ```
    npm start
    ```
 
-5. Connect your mobile device or emulator to run the app.
+5. 连接移动设备或模拟器以运行该应用程序。
 
-## Contributing
+## 贡献
 
-Contributions are welcome! Feel free to open an issue or submit a pull request.
+欢迎贡献！ 请随意提出问题或提交拉取请求。
 
 ## License
 
