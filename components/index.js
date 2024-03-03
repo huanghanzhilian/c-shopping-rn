@@ -61,6 +61,10 @@ export { default as Specification } from './product/Specification'
 
 //* CART COMPONENTS
 export { default as AddToCartOperation } from './cart/AddToCartOperation'
+export { default as CartButtons } from './cart/CartButtons'
+export { default as CartItem } from './cart/CartItem'
+export { default as CartInfo } from './cart/CartInfo'
+export { default as DiscountCartItem } from './cart/DiscountCartItem'
 
 //* REVIEW COMPONENTS
 export { default as Reviews } from './review/Reviews'

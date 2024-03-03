@@ -18,7 +18,10 @@ const ProductCard = props => {
   return (
     <Link href={`/products/${product._id}`} asChild>
       <Pressable className="py-2 border-b border-gray-100 relative">
-        <SpecialSell discount={product.discount} inStock={product.inStock} />
+        <View className="absolute top-0 left-0 z-10">
+          <SpecialSell discount={product.discount} inStock={product.inStock} />
+        </View>
+
         <View className="flex flex-row items-center gap-3 space-x-3">
           <View className="flex p-1">
             <ResponsiveImage
