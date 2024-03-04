@@ -1,7 +1,12 @@
 import { Link } from 'expo-router'
 import { Text, View } from 'react-native'
 
-import { SpecialSell, CartButtons, Icons, DiscountCartItem, ResponsiveImage } from '@/components'
+import CartButtons from './CartButtons'
+import DiscountCartItem from './DiscountCartItem'
+import Icons from '../common/Icons'
+import ResponsiveImage from '../common/ResponsiveImage'
+import SpecialSell from '../product/SpecialSell'
+
 import { formatNumber } from '@/utils'
 
 const CartItem = props => {

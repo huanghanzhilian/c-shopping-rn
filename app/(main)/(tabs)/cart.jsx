@@ -15,7 +15,7 @@ export default function CartScreen() {
   //? Handlers
   const handleRoute = () => {
     mustAuthAction(() => {
-      router.push({ pathname: `/checkout/shipping`, params: {} })
+      router.push({ pathname: `/payment`, params: {} })
     })
   }
 
@@ -77,7 +77,7 @@ export default function CartScreen() {
                   <Text className="ml-1">¥</Text>
                 </View>
               </View>
-              <Button className="w-1/2" onClick={handleRoute}>
+              <Button className="w-1/2" onPress={handleRoute}>
                 继续
               </Button>
             </View>

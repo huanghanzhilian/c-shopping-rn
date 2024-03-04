@@ -14,7 +14,6 @@ const SelectColor = props => {
 
   //? Store
   const { tempColor } = useAppSelector(state => state.cart)
-  console.log('colors', colors)
 
   //? Render(s)
   return (

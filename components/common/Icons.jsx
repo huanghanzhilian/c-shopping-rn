@@ -7,6 +7,7 @@ import {
   AntDesign,
   SimpleLineIcons,
   FontAwesome,
+  Entypo,
 } from '@expo/vector-icons'
 
 const Icons = {
@@ -18,6 +19,7 @@ const Icons = {
   MaterialIcons,
   AntDesign,
   SimpleLineIcons,
+  Entypo,
 }
 
 export default Icons
