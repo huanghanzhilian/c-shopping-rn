@@ -33,7 +33,7 @@ export default function ShowWrapper(props) {
           </TouchableOpacity>
         </View>
       ) : isFetching ? (
-        <>{loadingComponent || <PageLoading />}</>
+        <View className="px-3 py-2">{loadingComponent || <PageLoading />}</View>
       ) : isSuccess && type === 'list' && dataLength > 0 ? (
         <>{children}</>
       ) : isSuccess && type === 'list' && dataLength === 0 ? (

@@ -31,12 +31,14 @@ export { default as SigninPromoRenderer } from './renderer/SigninPromoRenderer'
 //* EMPTY LIST COMPONENTS
 export { default as EmptyCustomList } from './emptyList/EmptyCustomList'
 export { default as EmptyComment } from './emptyList/EmptyComment'
+export { default as EmptyOrdersList } from './emptyList/EmptyOrdersList'
 
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'
 export { default as DiscountSlider } from './sliders/DiscountSlider'
 export { default as BestSellsSlider } from './sliders/BestSellsSlider'
 export { default as SmilarProductsSlider } from './sliders/SmilarProductsSlider'
+export { default as OrderSkeleton } from './skeleton/OrderSkeleton'
 
 //* BANNER COMPONENTS
 export { default as BannerOne } from './banners/BannerOne'
@@ -65,6 +67,9 @@ export { default as CartButtons } from './cart/CartButtons'
 export { default as CartItem } from './cart/CartItem'
 export { default as CartInfo } from './cart/CartInfo'
 export { default as DiscountCartItem } from './cart/DiscountCartItem'
+
+//* ORDERS COMPONENTS
+export { default as OrderCard } from './order/OrderCard'
 
 //* REVIEW COMPONENTS
 export { default as Reviews } from './review/Reviews'

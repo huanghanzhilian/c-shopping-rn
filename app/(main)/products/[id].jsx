@@ -1,4 +1,4 @@
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
+import { Link, Stack, useLocalSearchParams, useRouter } from 'expo-router'
 import { View, Text, ScrollView, Pressable } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -64,11 +64,13 @@ export default function SingleProductScreen() {
                   className="px-2 py-1"
                 />
                 {formatNumber(totalItems) && (
-                  <Pressable className="absolute outline outline-2 bottom-3.5 left-5 bg-red-500 rounded-md w-5 h-5 p-0.5">
-                    <Text className=" text-center text-xs text-white">
-                      {formatNumber(totalItems)}
-                    </Text>
-                  </Pressable>
+                  <Link href="/cart" asChild>
+                    <Pressable className="absolute outline outline-2 bottom-3.5 left-5 bg-red-500 rounded-md w-5 h-5 p-0.5">
+                      <Text className=" text-center text-xs text-white">
+                        {formatNumber(totalItems)}
+                      </Text>
+                    </Pressable>
+                  </Link>
                 )}
               </View>
 
