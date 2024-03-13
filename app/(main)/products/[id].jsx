@@ -1,11 +1,12 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, Pressable } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import {
   AddToCartOperation,
   Description,
   FreeShipping,
+  Icons,
   ImageGallery,
   Info,
   InitialStore,
@@ -17,13 +18,18 @@ import {
   SmilarProductsSlider,
   Specification,
 } from '@/components'
+import { useAppSelector } from '@/hooks'
 import { useGetSingleProductDetailQuery } from '@/services'
+import { formatNumber } from '@/utils'
 
 export default function SingleProductScreen() {
   //? Assets
   const router = useRouter()
   const { id } = useLocalSearchParams()
   const insets = useSafeAreaInsets()
+
+  //? Store
+  const { totalItems } = useAppSelector(state => state.cart)
 
   //? Get Feeds Query
   const {
@@ -48,6 +54,27 @@ export default function SingleProductScreen() {
     <>
       <Stack.Screen
         options={{
+          headerRight: () => (
+            <>
+              <View className="relative">
+                <Icons.AntDesign
+                  name="shoppingcart"
+                  size={24}
+                  color="#1F2937"
+                  className="px-2 py-1"
+                />
+                {formatNumber(totalItems) && (
+                  <Pressable className="absolute outline outline-2 bottom-3.5 left-5 bg-red-500 rounded-md w-5 h-5 p-0.5">
+                    <Text className=" text-center text-xs text-white">
+                      {formatNumber(totalItems)}
+                    </Text>
+                  </Pressable>
+                )}
+              </View>
+
+              <Icons.Feather name="heart" size={20} color="#1F2937" className="px-2 py-1" />
+            </>
+          ),
           title: product?.title || '',
           headerBackTitleVisible: false,
         }}
