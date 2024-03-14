@@ -1,48 +1,35 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-
-const token = ''
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  token,
-  status: 'idle',
+  token: '',
+  lastSeen: [],
 }
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setToken: (state, action) => {
+    userLogout: state => {
+      state.token = ''
+    },
+
+    userLogin: (state, action) => {
       state.token = action.payload
     },
-  },
-  extraReducers: builder => {
-    builder
-      .addCase(setTokenAsync.pending, (state, action) => {
-        state.status = 'loading'
-      })
-      .addCase(setTokenAsync.rejected, (state, action) => {
-        state.status = 'failed'
-      })
-      .addCase(setTokenAsync.fulfilled, (state, action) => {
-        state.status = 'idle'
-      })
+
+    addToLastSeen: (state, action) => {
+      const isItemExist = state.lastSeen.find(item => item.productID === action.payload.productID)
+
+      if (!isItemExist) {
+        if (state.lastSeen.length === 15) {
+          state.lastSeen.splice(14, 1)
+        }
+        state.lastSeen.unshift(action.payload)
+      }
+    },
   },
 })
 
-export const setTokenAsync = createAsyncThunk(
-  'user/setTokenAsync',
-  async (token, { dispatch, getState }) => {
-    try {
-      await AsyncStorage.setItem('token', token)
-      dispatch(setToken(token))
-      return true
-    } catch (err) {
-      return false
-    }
-  }
-)
-
-export const { setToken } = userSlice.actions
+export const { userLogout, userLogin, addToLastSeen } = userSlice.actions
 
 export default userSlice.reducer

@@ -7,7 +7,7 @@ import { Text, View } from 'react-native'
 import { Button, HandleResponse, Logo, TextField } from '@/components'
 import { useAppDispatch } from '@/hooks'
 import { useLoginMutation } from '@/services'
-import { setTokenAsync } from '@/store'
+import { userLogin } from '@/store'
 import { logInSchema } from '@/utils'
 
 export default function LoginScreen() {
@@ -43,11 +43,9 @@ export default function LoginScreen() {
     }
   }
 
-  const onSuccess = async () => {
-    try {
-      await dispatch(setTokenAsync(data.data.token)).unwrap()
-      router.back()
-    } catch (error) {}
+  const onSuccess = () => {
+    dispatch(userLogin(data.data.token))
+    router.back()
   }
 
   return (

@@ -4,21 +4,19 @@ import Toast from 'react-native-toast-message'
 import Icons from './common/Icons'
 
 import { useAppDispatch } from '@/hooks'
-import { setTokenAsync } from '@/store'
+import { userLogout } from '@/store'
 
 export default function Logout() {
   //? Assets
   const dispatch = useAppDispatch()
 
   //? Handlers
-  const handleLogout = async () => {
-    try {
-      await dispatch(setTokenAsync('')).unwrap()
-      Toast.show({
-        type: 'success',
-        text2: '已退出登录',
-      })
-    } catch (error) {}
+  const handleLogout = () => {
+    dispatch(userLogout())
+    Toast.show({
+      type: 'success',
+      text2: '已退出登录',
+    })
   }
 
   //? Render(s)

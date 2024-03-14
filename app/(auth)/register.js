@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form'
 import { ScrollView, Text, View } from 'react-native'
 
 import { Button, HandleResponse, Logo, TextField } from '@/components'
-import { useAppDispatch, useAppSelector } from '@/hooks'
+import { useAppDispatch } from '@/hooks'
 import { useCreateUserMutation } from '@/services'
-import { setTokenAsync } from '@/store'
+import { userLogin } from '@/store'
 import { registerSchema } from '@/utils'
 
 export default function RegisterScreen() {
@@ -34,12 +34,8 @@ export default function RegisterScreen() {
     setFocus('name')
   }, [])
 
-  //? Store
-  const { status } = useAppSelector(state => state.user)
-
   //? Handlers
   const onSubmit = async ({ name, email, password }) => {
-    console.log('name', name)
     if (name && email && password) {
       await createUser({
         body: { name, email, password },
@@ -47,11 +43,9 @@ export default function RegisterScreen() {
     }
   }
 
-  const onSuccess = async () => {
-    try {
-      await dispatch(setTokenAsync(data.data.token)).unwrap()
-      router.back()
-    } catch (error) {}
+  const onSuccess = () => {
+    dispatch(userLogin(data.data.token))
+    router.back()
   }
 
   return (

@@ -16,6 +16,7 @@ const persistConfig = {
 }
 
 const cartPersistedReducer = persistReducer(persistConfig, cartReducer)
+const userPersistedReducer = persistReducer(persistConfig, userReducer)
 
 //? Actions
 export * from './slices/user.slice'
@@ -23,7 +24,7 @@ export * from './slices/cart.slice'
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
+    user: userPersistedReducer,
     cart: cartPersistedReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },

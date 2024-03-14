@@ -20,15 +20,15 @@ const InitialStore = props => {
       dispatch(setTempSize(null))
     }
   }, [])
-  // useEffect(() => {
-  //   dispatch(
-  //     addToLastSeen({
-  //       productID: product._id,
-  //       image: product.images[0],
-  //       title: product.title,
-  //     })
-  //   )
-  // }, [product._id])
+  useEffect(() => {
+    dispatch(
+      addToLastSeen({
+        productID: product._id,
+        image: product.images[0],
+        title: product.title,
+      })
+    )
+  }, [product._id])
   return null
 }
 
