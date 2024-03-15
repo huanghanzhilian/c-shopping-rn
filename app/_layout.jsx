@@ -1,7 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Stack } from 'expo-router/stack'
-import { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import Toast from 'react-native-toast-message'
 import { Provider } from 'react-redux'
