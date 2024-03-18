@@ -32,6 +32,7 @@ export { default as SigninPromoRenderer } from './renderer/SigninPromoRenderer'
 export { default as EmptyCustomList } from './emptyList/EmptyCustomList'
 export { default as EmptyComment } from './emptyList/EmptyComment'
 export { default as EmptyOrdersList } from './emptyList/EmptyOrdersList'
+export { default as EmptyCommentsList } from './emptyList/EmptyCommentsList'
 
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'
@@ -74,6 +75,7 @@ export { default as OrderCard } from './order/OrderCard'
 //* REVIEW COMPONENTS
 export { default as Reviews } from './review/Reviews'
 export { default as ReviewProductCard } from './review/ReviewProductCard'
+export { default as ReveiwCard } from './review/ReveiwCard'
 
 //* FILTER COMPONENTS
 export { default as Filter } from './filter/Filter'
