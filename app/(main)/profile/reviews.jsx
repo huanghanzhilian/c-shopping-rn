@@ -4,7 +4,7 @@ import { ScrollView, View } from 'react-native'
 import { ReveiwCard, ShowWrapper, EmptyCommentsList, ReveiwSkeleton } from '@/components'
 import { useGetReviewsQuery } from '@/services'
 
-const Reviews = () => {
+const ReviewsScreen = () => {
   //*   Get Reviews
   const { data, isSuccess, isFetching, error, isError, refetch } = useGetReviewsQuery({
     page: 1,
@@ -39,4 +39,4 @@ const Reviews = () => {
   )
 }
 
-export default Reviews
+export default ReviewsScreen

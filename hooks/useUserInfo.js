@@ -4,7 +4,7 @@ import { useAppDispatch } from './useRedux'
 import useVerify from './useVerify'
 
 import { useGetUserInfoQuery } from '@/services'
-import { setTokenAsync } from '@/store'
+import { userLogout } from '@/store'
 
 export default function useUserInfo() {
   const dispatch = useAppDispatch()
@@ -23,7 +23,7 @@ export default function useUserInfo() {
     nextAction()
   }
 
-  if (isError) dispatch(setTokenAsync(''))
+  if (isError) dispatch(userLogout())
 
   return {
     userInfo: data?.data,

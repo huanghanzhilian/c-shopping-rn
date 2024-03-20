@@ -5,7 +5,7 @@ import { Text, View } from 'react-native'
 
 import { FavoritesListEmpty } from '@/components'
 
-const Lists = () => {
+const ListsScreen = () => {
   //? Render(s)
   return (
     <>
@@ -24,4 +24,4 @@ const Lists = () => {
   )
 }
 
-export default Lists
+export default ListsScreen

@@ -6,7 +6,7 @@ import { EmptyCart, ResponsiveImage } from '@/components'
 import { useAppSelector } from '@/hooks'
 import { truncate } from '@/utils'
 
-const UserHistory = () => {
+const UserHistoryScreen = () => {
   //? Store
   const { lastSeen } = useAppSelector(state => state.user)
 
@@ -50,4 +50,4 @@ const UserHistory = () => {
   )
 }
 
-export default UserHistory
+export default UserHistoryScreen

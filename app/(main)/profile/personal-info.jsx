@@ -1,45 +1,54 @@
-import { useRouter } from 'expo-router'
-import { View, Text, Pressable } from 'react-native'
+import { Stack } from 'expo-router'
+import { useState } from 'react'
+import { Modal, Pressable, Text, View } from 'react-native'
 
-import { AuthMustWrapper } from '@/components'
-import { useAppSelector, useAppDispatch, useUserInfo } from '@/hooks'
-import { userLogout } from '@/store'
+import { Icons, Skeleton } from '@/components'
+import { useUserInfo } from '@/hooks'
 
-export default function PersonalInfoScreen() {
+const PersonalInfoScreen = () => {
   //? Assets
-  const dispatch = useAppDispatch()
-  const router = useRouter()
-  const { userInfo } = useUserInfo()
+  const [modalVisible, setModalVisible] = useState(false)
 
-  //? Store
-  const { token } = useAppSelector(state => state.user)
+  //? Get User Data
+  const { userInfo, isLoading } = useUserInfo()
 
-  //? Handlers
-  const onLogOut = () => {
-    dispatch(userLogout())
-    router.back()
-  }
-
-  //? Render(s)
-
-  return (
-    <AuthMustWrapper>
-      <View className="flex-1 bg-white space-y-4">
-        {userInfo && (
-          <>
-            <Text>PersonalInfo Screen</Text>
-            <Text>token: {token}</Text>
-            <Text>name: {userInfo.name}</Text>
-            <Text>mobile: {userInfo.mobile}</Text>
-            <Pressable
-              className=" w-fit py-2 px-8 flex-center bg-red-500 rounded-full"
-              onPress={onLogOut}
-            >
-              <Text className="text-sm text-white">Log Out</Text>
-            </Pressable>
-          </>
+  //? Local Component
+  const InfoField = ({ label, info, editHandler, isLoading }) => (
+    <View className="flex px-5">
+      <View className="flex flex-row items-center justify-between py-4 border-b border-gray-200">
+        <View className="flex gap-y-2">
+          <Text className="text-xs text-gray-700">{label}</Text>
+          {isLoading ? (
+            <Skeleton.Item animated="background" height="h-5" width="w-44" />
+          ) : (
+            <Text className="h-5 text-sm">{info}</Text>
+          )}
+        </View>
+        {isLoading ? null : info ? (
+          <Icons.Feather name="edit" size={16} className="cursor-pointer icon" />
+        ) : (
+          <Icons.Feather name="plus" size={16} className="cursor-pointer icon" />
         )}
       </View>
-    </AuthMustWrapper>
+    </View>
+  )
+
+  //? Render(s)
+  return (
+    <>
+      <Stack.Screen
+        options={{
+          title: '帐户信息',
+          headerBackTitleVisible: false,
+        }}
+      />
+
+      <View className="h-full bg-white">
+        <InfoField label="名字和姓氏" info={userInfo?.name} isLoading={isLoading} />
+        <InfoField label="电话号码" info={userInfo?.mobile} isLoading={isLoading} />
+      </View>
+    </>
   )
 }
+
+export default PersonalInfoScreen
