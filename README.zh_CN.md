@@ -90,6 +90,14 @@
 | ------------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Reviews List | ![](https://www.cheerspublishing.com/uploads/article/421bca65-41cb-448f-a20b-52ce194fb96e.png) | ![](https://www.cheerspublishing.com/uploads/article/9e6945a8-fd31-4e7a-a959-8f95745d51cc.png) | ![](https://www.cheerspublishing.com/uploads/article/1fb3fc3b-61c4-473c-ac1c-8ad7c564c53c.png) | ![](https://www.cheerspublishing.com/uploads/article/13aa858f-1207-43f8-9cd6-270e7e3e44a4.png) |
 
+| Module              | Loading or skeleton                                                                            | Normal screen                                                                                  | Edit and save                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| PersonalInfo Screen | ![](https://www.cheerspublishing.com/uploads/article/c2709941-86e0-42e7-881e-4d44ad2bc009.png) | ![](https://www.cheerspublishing.com/uploads/article/ba048862-c706-4f6e-94af-18f8981e6b0c.png) | ![](https://www.cheerspublishing.com/uploads/article/6d892150-d74c-41e4-b704-64868eddbe29.png) |
+
+| Module        | Loading or skeleton                                                                            | Normal screen                                                                                  | Empty screen                                                                                   |
+| ------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Serach Screen | ![](https://www.cheerspublishing.com/uploads/article/f858a528-e810-4aaa-8b38-15a093ca6fc0.png) | ![](https://www.cheerspublishing.com/uploads/article/ce3a5199-bb02-4276-8f78-422ab41d68fd.png) | ![](https://www.cheerspublishing.com/uploads/article/cb818668-b4af-488a-9991-cc5923c2e915.png) |
+
 ## 安装
 
 本地运行 c-shopping-rn React Native 应用程序，请按照以下步骤操作：

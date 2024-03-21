@@ -18,6 +18,7 @@ export { default as DisplayError } from './common/DisplayError'
 export { default as HandleResponse } from './common/HandleResponse'
 export { default as BoxLink } from './common/BoxLink'
 export { default as ResponsiveImage } from './common/ResponsiveImage'
+export { default as Modal } from './common/Modal'
 export * from './common/Buttons'
 
 //* LOADING
@@ -33,6 +34,7 @@ export { default as EmptyCustomList } from './emptyList/EmptyCustomList'
 export { default as EmptyComment } from './emptyList/EmptyComment'
 export { default as EmptyOrdersList } from './emptyList/EmptyOrdersList'
 export { default as EmptyCommentsList } from './emptyList/EmptyCommentsList'
+export { default as EmptySearchList } from './emptyList/EmptySearchList'
 
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'
@@ -84,6 +86,10 @@ export { default as Filter } from './filter/Filter'
 export { default as SubCategoriesSkeleton } from './skeleton/SubCategoriesSkeleton'
 export { default as ProductSkeleton } from './skeleton/ProductSkeleton'
 export { default as ReveiwSkeleton } from './skeleton/ReveiwSkeleton'
+
+//* MODAL COMPONENTS
+export { default as UserMobileModal } from './modals/UserMobileModal'
+export { default as UserNameModal } from './modals/UserNameModal'
 
 //* SVGs
 export { default as Logo } from './svgs/logo.svg'

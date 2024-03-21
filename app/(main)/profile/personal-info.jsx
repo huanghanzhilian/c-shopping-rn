@@ -1,13 +1,13 @@
 import { Stack } from 'expo-router'
-import { useState } from 'react'
-import { Modal, Pressable, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
-import { Icons, Skeleton } from '@/components'
-import { useUserInfo } from '@/hooks'
+import { Icons, Skeleton, UserMobileModal, UserNameModal } from '@/components'
+import { useDisclosure, useUserInfo } from '@/hooks'
 
 const PersonalInfoScreen = () => {
   //? Assets
-  const [modalVisible, setModalVisible] = useState(false)
+  const [isShowNameModal, nameModalHandlers] = useDisclosure()
+  const [isShowPhoneModal, phoneModalHandlers] = useDisclosure()
 
   //? Get User Data
   const { userInfo, isLoading } = useUserInfo()
@@ -25,9 +25,19 @@ const PersonalInfoScreen = () => {
           )}
         </View>
         {isLoading ? null : info ? (
-          <Icons.Feather name="edit" size={16} className="cursor-pointer icon" />
+          <Icons.Feather
+            onPress={editHandler}
+            name="edit"
+            size={16}
+            className="cursor-pointer icon"
+          />
         ) : (
-          <Icons.Feather name="plus" size={16} className="cursor-pointer icon" />
+          <Icons.Feather
+            onPress={editHandler}
+            name="plus"
+            size={16}
+            className="cursor-pointer icon"
+          />
         )}
       </View>
     </View>
@@ -42,10 +52,33 @@ const PersonalInfoScreen = () => {
           headerBackTitleVisible: false,
         }}
       />
-
+      {!isLoading && userInfo && (
+        <>
+          <UserNameModal
+            isShow={isShowNameModal}
+            onClose={nameModalHandlers.close}
+            editedData={userInfo.name}
+          />
+          <UserMobileModal
+            isShow={isShowPhoneModal}
+            onClose={phoneModalHandlers.close}
+            editedData={userInfo.mobile}
+          />
+        </>
+      )}
       <View className="h-full bg-white">
-        <InfoField label="名字和姓氏" info={userInfo?.name} isLoading={isLoading} />
-        <InfoField label="电话号码" info={userInfo?.mobile} isLoading={isLoading} />
+        <InfoField
+          label="名字和姓氏"
+          info={userInfo?.name}
+          editHandler={nameModalHandlers.open}
+          isLoading={isLoading}
+        />
+        <InfoField
+          label="电话号码"
+          info={userInfo?.mobile}
+          editHandler={phoneModalHandlers.open}
+          isLoading={isLoading}
+        />
       </View>
     </>
   )

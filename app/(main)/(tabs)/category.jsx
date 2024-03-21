@@ -26,7 +26,7 @@ export default function CategoryScreen() {
   }
 
   const handleSearch = () => {
-    router.push('/review/detail')
+    router.push('/search')
   }
 
   //? Re-Renders

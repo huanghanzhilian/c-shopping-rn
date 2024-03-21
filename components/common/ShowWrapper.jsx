@@ -20,7 +20,7 @@ export default function ShowWrapper(props) {
 
   //? Render(s)
   return (
-    <View>
+    <>
       {isError ? (
         <View className="py-20 mx-auto space-y-3 text-center w-fit">
           <Text className="text-sm">出现异常</Text>
@@ -33,7 +33,7 @@ export default function ShowWrapper(props) {
           </TouchableOpacity>
         </View>
       ) : isFetching ? (
-        <View className="px-3 py-2">{loadingComponent || <PageLoading />}</View>
+        <View className="">{loadingComponent || <PageLoading />}</View>
       ) : isSuccess && type === 'list' && dataLength > 0 ? (
         <>{children}</>
       ) : isSuccess && type === 'list' && dataLength === 0 ? (
@@ -41,6 +41,6 @@ export default function ShowWrapper(props) {
       ) : isSuccess && type === 'detail' ? (
         <>{children}</>
       ) : null}
-    </View>
+    </>
   )
 }
