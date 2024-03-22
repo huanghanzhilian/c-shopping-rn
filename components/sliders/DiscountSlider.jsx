@@ -31,7 +31,7 @@ export default function DiscountSlider(props) {
 
   //? handlers
   const handleJumptoMore = () => {
-    router.push('/about')
+    router.push('/category')
   }
 
   //? Render(s)
