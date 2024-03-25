@@ -81,7 +81,7 @@ I hope those who come will gain something. The story never ends, and youth never
 | ------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Serach Screen | ![](https://www.cheerspublishing.com/uploads/article/f858a528-e810-4aaa-8b38-15a093ca6fc0.png) | ![](https://www.cheerspublishing.com/uploads/article/ce3a5199-bb02-4276-8f78-422ab41d68fd.png) | ![](https://www.cheerspublishing.com/uploads/article/cb818668-b4af-488a-9991-cc5923c2e915.png) |
 
-## Installation
+## Usage
 
 To run the C-Shopping React Native app locally, follow these steps:
 
@@ -103,13 +103,21 @@ To run the C-Shopping React Native app locally, follow these steps:
    npm install
    ```
 
-4. Start the development server:
+4. Please create a new `.env` file from `.env.example` file in the project root directory to define the required environment variables.
+
+   Eg:
+
+   ```
+   EXPO_PUBLIC_BASE_URL=https://c-shopping-three.vercel.app
+   ```
+
+5. Start the development server:
 
    ```
    npm start
    ```
 
-5. Connect your mobile device or emulator to run the app.
+6. Connect your mobile device or emulator to run the app.
 
 ## Contributing
 

@@ -98,7 +98,7 @@
 | ------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Serach Screen | ![](https://www.cheerspublishing.com/uploads/article/f858a528-e810-4aaa-8b38-15a093ca6fc0.png) | ![](https://www.cheerspublishing.com/uploads/article/ce3a5199-bb02-4276-8f78-422ab41d68fd.png) | ![](https://www.cheerspublishing.com/uploads/article/cb818668-b4af-488a-9991-cc5923c2e915.png) |
 
-## 安装
+## 运行使用
 
 本地运行 c-shopping-rn React Native 应用程序，请按照以下步骤操作：
 
@@ -120,13 +120,17 @@
    npm install
    ```
 
-4. 启动：
+4. 查看`.env.example`内容，创建新的`.env`的文件，在项目根目录，定义所需的环境变量。
+   ```
+   EXPO_PUBLIC_BASE_URL=https://c-shopping-three.vercel.app
+   ```
+5. 启动：
 
    ```
    npm start
    ```
 
-5. 连接移动设备或模拟器以运行该应用程序。
+6. 连接移动设备或模拟器以运行该应用程序。
 
 ## 贡献
 
