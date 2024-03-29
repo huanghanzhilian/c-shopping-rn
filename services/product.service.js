@@ -10,6 +10,29 @@ export const productApiSlice = apiSlice.injectEndpoints({
           params: { category, page_size, page, sort, search, inStock, discount, price },
         }
       },
+      serializeQueryArgs: ({ queryArgs, ...rest }) => {
+        const newQueryArgs = { ...queryArgs }
+        if (newQueryArgs.page) {
+          delete newQueryArgs.page
+        }
+        return newQueryArgs
+      },
+      // Always merge incoming data to the cache entry
+      merge: (currentCache, newItems) => {
+        if (currentCache && currentCache.data.products !== newItems.data.products) {
+          newItems.data.products.unshift(...currentCache.data.products)
+          return {
+            ...currentCache,
+            ...newItems,
+          }
+        }
+        return newItems
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        if (currentArg?.page === 1) return false
+        return currentArg?.page !== previousArg?.page
+      },
       providesTags: result =>
         result
           ? [

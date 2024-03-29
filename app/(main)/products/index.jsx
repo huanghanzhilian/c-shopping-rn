@@ -1,7 +1,6 @@
 import { FlashList } from '@shopify/flash-list'
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
-import { useMemo } from 'react'
-import { View, Text, ScrollView, Pressable, FlatList } from 'react-native'
+import { Stack, useLocalSearchParams } from 'expo-router'
+import { View, Text } from 'react-native'
 
 import { Filter, ProductCard, ProductSkeleton, Sort, SubCategories } from '@/components'
 import { useChangeRoute } from '@/hooks'
@@ -9,7 +8,6 @@ import { useGetCategoriesQuery, useGetProductsQuery } from '@/services'
 
 export default function ProductsScreen() {
   //? Assets
-  const router = useRouter()
   const params = useLocalSearchParams()
 
   const category = params?.category?.toString() ?? ''
@@ -23,68 +21,39 @@ export default function ProductsScreen() {
 
   //? Querirs
   //*    Get Products Data
-  const { data: lastResult } = useGetProductsQuery(
+
+  const {
+    data,
+    hasNextPage,
+    isFetching: isFetchingProduct,
+  } = useGetProductsQuery(
     {
       category,
       page_size,
-      page: page - 1,
+      page,
       sort,
       search,
       inStock,
       discount,
       price,
     },
-    { skip: page === 1 }
-  )
-  const { data, isFetching: isFetchingProduct } = useGetProductsQuery({
-    category,
-    page_size,
-    page,
-    sort,
-    search,
-    inStock,
-    discount,
-    price,
-  })
-  const { data: nextResult } = useGetProductsQuery({
-    category,
-    page_size,
-    page: page + 1,
-    sort,
-    search,
-    inStock,
-    discount,
-    price,
-  })
-
-  const combined = useMemo(() => {
-    const arr = new Array(page_size * (page + 1))
-    console.log('123', [lastResult?.data, data?.data, nextResult?.data])
-    for (const datas of [lastResult?.data, data?.data, nextResult?.data]) {
-      if (datas) {
-        const { currentPage, nextPage, previousPage, hasNextPage, hasPreviousPage, lastPage } =
-          datas?.pagination
-
-        arr.splice(currentPage * 10, datas?.products?.length, ...datas?.products)
-      }
+    {
+      selectFromResult: ({ data, ...args }) => ({
+        hasNextPage: data?.data?.pagination?.hasNextPage ?? false,
+        data,
+        ...args,
+      }),
     }
-    console.log('arraaaa', arr)
-    return arr
-  }, [page_size, page, lastResult, data, nextResult])
-
-  console.log('combined', combined)
+  )
 
   //? Handlers
   const changeRoute = useChangeRoute()
 
   const onEndReachedThreshold = () => {
-    // const { currentPage, nextPage, previousPage, hasNextPage, hasPreviousPage, lastPage } =
-    //   nextResult?.data?.pagination
-    // console.log('down')
-    // if (!hasNextPage || isFetchingProduct) return
-    // changeRoute({
-    //   page: Number(page) + 1,
-    // })
+    if (!hasNextPage) return
+    changeRoute({
+      page: Number(page) + 1,
+    })
   }
 
   const handleChangeRoute = newQueries => {
@@ -117,58 +86,46 @@ export default function ProductsScreen() {
           title: params.category,
         }}
       />
-      <ScrollView className="bg-white">
-        <View className="flex bg-white">
-          <SubCategories
-            childCategories={childCategories}
-            name={currentCategory?.name}
-            isLoading={isLoadingCategories}
-          />
-          <View className="px-1">
-            <View id="_products" className="w-full h-full px-4 py-2 mt-2">
-              {/* Filters & Sort */}
-              <View className="divide-y-2 divide-neutral-200">
-                <View className="flex flex-row py-2 gap-x-3">
-                  <Filter />
-                  <Sort />
-                </View>
-
-                <View className="flex flex-row justify-between py-2">
-                  <Text className="text-base text-neutral-600">所有商品</Text>
-                  <Text className="text-base text-neutral-600">
-                    {data?.data?.productsLength} 件商品
-                  </Text>
-                </View>
+      <View className="bg-white h-full flex">
+        <SubCategories
+          childCategories={childCategories}
+          name={currentCategory?.name}
+          isLoading={isLoadingCategories}
+        />
+        <View className="px-1 flex-1">
+          <View id="_products" className="w-full h-[100%] flex px-4 py-2 mt-2">
+            {/* Filters & Sort */}
+            <View className="divide-y-2 divide-neutral-200">
+              <View className="flex flex-row py-2 gap-x-3">
+                <Filter />
+                <Sort />
               </View>
 
-              {/* Products */}
-              {isFetchingProduct && page === 1 ? (
-                <ProductSkeleton />
-              ) : data && data?.data?.products.length > 0 ? (
-                <View className="">
-                  {data?.data?.products.map(item => (
-                    <ProductCard product={item} key={item._id} />
-                  ))}
-                </View>
-              ) : (
-                // <FlashList
-                //   data={combined}
-                //   renderItem={({ item, index }) => <ProductCard product={item} key={item._id} />}
-                //   onEndReached={onEndReachedThreshold}
-                //   onEndReachedThreshold={0.5}
-                //   estimatedItemSize={200}
-                // />
-                // <View className="">
-                //   {data?.data?.products.map(item => (
-                //     <ProductCard product={item} key={item._id} />
-                //   ))}
-                // </View>
-                <Text className="text-center text-red-500">没有找到商品</Text>
-              )}
+              <View className="flex flex-row justify-between py-2">
+                <Text className="text-base text-neutral-600">所有商品</Text>
+
+                <Text className="text-base text-neutral-600">
+                  {data?.data?.productsLength} 件商品
+                </Text>
+              </View>
             </View>
+            {/* Products */}
+            {isFetchingProduct && page === 1 && <ProductSkeleton />}
+            {data && data?.data?.products.length > 0 ? (
+              <FlashList
+                className="h-[50vh]"
+                data={data?.data?.products}
+                renderItem={({ item, index }) => <ProductCard product={item} key={item._id} />}
+                onEndReached={onEndReachedThreshold}
+                onEndReachedThreshold={0}
+                estimatedItemSize={200}
+              />
+            ) : (
+              <Text className="text-center text-red-500">没有找到商品</Text>
+            )}
           </View>
         </View>
-      </ScrollView>
+      </View>
     </>
   )
 }
