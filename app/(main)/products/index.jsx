@@ -113,7 +113,6 @@ export default function ProductsScreen() {
             {isFetchingProduct && page === 1 && <ProductSkeleton />}
             {data && data?.data?.products.length > 0 ? (
               <FlashList
-                className="h-[50vh]"
                 data={data?.data?.products}
                 renderItem={({ item, index }) => <ProductCard product={item} key={item._id} />}
                 onEndReached={onEndReachedThreshold}

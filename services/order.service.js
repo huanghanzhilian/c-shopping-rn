@@ -3,10 +3,12 @@ import apiSlice from './api'
 export const orderApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
     getOrdersList: builder.query({
-      query: ({ page = 1, pageSize = 10 }) => ({
-        url: `/api/order/list?page=${page}&page_size=${pageSize}`,
+      query: (page_size, page) => ({
+        url: `/api/order/list`,
         method: 'GET',
+        params: { page_size, page },
       }),
+
       providesTags: (result, error, arg) =>
         result
           ? [
@@ -24,6 +26,30 @@ export const orderApiSlice = apiSlice.injectEndpoints({
         url: `/api/order?page=${page}&page_size=${pageSize}`,
         method: 'GET',
       }),
+      serializeQueryArgs: ({ queryArgs, ...rest }) => {
+        const newQueryArgs = { ...queryArgs }
+        if (newQueryArgs.page) {
+          delete newQueryArgs.page
+        }
+        return newQueryArgs
+      },
+      // Always merge incoming data to the cache entry
+      merge: (currentCache, newItems) => {
+        console.log('currentCache', currentCache)
+        if (currentCache) {
+          newItems.data.orders.unshift(...currentCache.data.orders)
+          return {
+            ...currentCache,
+            ...newItems,
+          }
+        }
+        return newItems
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        if (currentArg?.page === 1) return false
+        return currentArg?.page !== previousArg?.page
+      },
     }),
 
     getSingleOrder: builder.query({
