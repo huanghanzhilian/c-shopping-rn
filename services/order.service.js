@@ -35,7 +35,6 @@ export const orderApiSlice = apiSlice.injectEndpoints({
       },
       // Always merge incoming data to the cache entry
       merge: (currentCache, newItems) => {
-        console.log('currentCache', currentCache)
         if (currentCache) {
           newItems.data.orders.unshift(...currentCache.data.orders)
           return {

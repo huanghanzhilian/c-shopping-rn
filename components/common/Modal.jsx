@@ -15,16 +15,14 @@ const Modal = props => {
 
   //? Render(s)
   return (
-    <ReactNativeModal isVisible={isShow} onBackdropPress={handleBackdropPress}>
-      <View {...restProps}>
-        {React.Children.map(children, child => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, { onClose })
-          }
+    <ReactNativeModal isVisible={isShow} onBackdropPress={handleBackdropPress} {...restProps}>
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { onClose })
+        }
 
-          return child
-        })}
-      </View>
+        return child
+      })}
     </ReactNativeModal>
   )
 }

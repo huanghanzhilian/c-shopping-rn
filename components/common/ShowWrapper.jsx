@@ -12,6 +12,7 @@ export default function ShowWrapper(props) {
     isFetching,
     dataLength,
     type = 'list',
+    originalArgs = null,
     isSuccess,
     emptyComponent,
     loadingComponent,
@@ -33,7 +34,11 @@ export default function ShowWrapper(props) {
           </TouchableOpacity>
         </View>
       ) : isFetching ? (
-        <View className="">{loadingComponent || <PageLoading />}</View>
+        type === 'list' && originalArgs && originalArgs?.page > 1 ? (
+          <>{children}</>
+        ) : (
+          <View className="">{loadingComponent || <PageLoading />}</View>
+        )
       ) : isSuccess && type === 'list' && dataLength > 0 ? (
         <>{children}</>
       ) : isSuccess && type === 'list' && dataLength === 0 ? (

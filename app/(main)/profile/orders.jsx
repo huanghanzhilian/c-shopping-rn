@@ -12,24 +12,22 @@ const OrdersScreen = () => {
   const [page, setPage] = useState(1)
 
   //? Get Orders Data
-  const { data, hasNextPage, isSuccess, isFetching, error, isError, refetch } = useGetOrdersQuery(
-    {
-      pageSize: 5,
-      page,
-    },
-    {
-      selectFromResult: ({ data, ...args }) => {
-        console.log('...args', { ...args })
-        return {
-          hasNextPage: data?.data?.pagination?.hasNextPage ?? false,
-          data,
-          ...args,
-        }
+  const { data, hasNextPage, isSuccess, isFetching, error, isError, refetch, originalArgs } =
+    useGetOrdersQuery(
+      {
+        pageSize: 5,
+        page,
       },
-    }
-  )
-
-  console.log('data', data)
+      {
+        selectFromResult: ({ data, ...args }) => {
+          return {
+            hasNextPage: data?.data?.pagination?.hasNextPage ?? false,
+            data,
+            ...args,
+          }
+        },
+      }
+    )
 
   //? Handlers
   const onEndReachedThreshold = () => {
@@ -46,29 +44,29 @@ const OrdersScreen = () => {
           headerBackTitleVisible: false,
         }}
       />
-      <ShowWrapper
-        error={error}
-        isError={isError}
-        refetch={refetch}
-        isFetching={isFetching}
-        isSuccess={isSuccess}
-        dataLength={data ? data?.data?.ordersLength : 0}
-        emptyComponent={<EmptyOrdersList />}
-        loadingComponent={<OrderSkeleton />}
-      >
-        <View className="px-4 py-3 space-y-3 h-full bg-white">
-          <FlashList
-            data={data?.data?.orders}
-            renderItem={({ item, index }) => <OrderCard key={item._id} order={item} />}
-            onEndReached={onEndReachedThreshold}
-            onEndReachedThreshold={0}
-            estimatedItemSize={200}
-          />
-          {/* {data?.data?.orders.map(item => (
-              <OrderCard key={item._id} order={item} />
-            ))} */}
-        </View>
-      </ShowWrapper>
+      <View className="bg-white">
+        <ShowWrapper
+          error={error}
+          isError={isError}
+          refetch={refetch}
+          isFetching={isFetching}
+          isSuccess={isSuccess}
+          dataLength={data ? data?.data?.ordersLength : 0}
+          emptyComponent={<EmptyOrdersList />}
+          loadingComponent={<OrderSkeleton />}
+          originalArgs={originalArgs}
+        >
+          <View className="px-4 py-3 space-y-3 h-full bg-white">
+            <FlashList
+              data={data?.data?.orders}
+              renderItem={({ item, index }) => <OrderCard key={item._id} order={item} />}
+              onEndReached={onEndReachedThreshold}
+              onEndReachedThreshold={0}
+              estimatedItemSize={200}
+            />
+          </View>
+        </ShowWrapper>
+      </View>
     </>
   )
 }

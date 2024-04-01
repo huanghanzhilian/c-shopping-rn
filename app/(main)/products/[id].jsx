@@ -56,23 +56,23 @@ export default function SingleProductScreen() {
         options={{
           headerRight: () => (
             <>
-              <View className="relative">
-                <Icons.AntDesign
-                  name="shoppingcart"
-                  size={24}
-                  color="#1F2937"
-                  className="px-2 py-1"
-                />
-                {formatNumber(totalItems) && (
-                  <Link href="/cart" asChild>
+              <Link href="/cart" asChild className="relative">
+                <Pressable>
+                  <Icons.AntDesign
+                    name="shoppingcart"
+                    size={24}
+                    color="#1F2937"
+                    className="px-2 py-1"
+                  />
+                  {formatNumber(totalItems) && (
                     <Pressable className="absolute outline outline-2 bottom-3.5 left-5 bg-red-500 rounded-md w-5 h-5 p-0.5">
                       <Text className=" text-center text-xs text-white">
                         {formatNumber(totalItems)}
                       </Text>
                     </Pressable>
-                  </Link>
-                )}
-              </View>
+                  )}
+                </Pressable>
+              </Link>
 
               <Icons.Feather name="heart" size={20} color="#1F2937" className="px-2 py-1" />
             </>

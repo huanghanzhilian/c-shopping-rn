@@ -57,11 +57,11 @@ export default function ProductsScreen() {
   }
 
   const handleChangeRoute = newQueries => {
-    // changeRoute({
-    //   ...query,
-    //   page: 1,
-    //   ...newQueries,
-    // })
+    changeRoute({
+      ...params,
+      page: 1,
+      ...newQueries,
+    })
   }
 
   //*    Get childCategories Data
@@ -98,7 +98,7 @@ export default function ProductsScreen() {
             <View className="divide-y-2 divide-neutral-200">
               <View className="flex flex-row py-2 gap-x-3">
                 <Filter />
-                <Sort />
+                <Sort handleChangeRoute={handleChangeRoute} />
               </View>
 
               <View className="flex flex-row justify-between py-2">

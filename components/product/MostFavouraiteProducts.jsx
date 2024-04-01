@@ -1,4 +1,5 @@
 import { FontAwesome } from '@expo/vector-icons'
+import { Link } from 'expo-router'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import DiscountProduct from './DiscountProduct'
@@ -59,33 +60,41 @@ export default function MostFavouraiteProducts(props) {
                 </Skeleton.Items>
               ))
           : products?.map((product, index) => (
-              <TouchableOpacity
+              <Link
+                href={{
+                  pathname: `/products/${product._id}`,
+                }}
                 key={product._id}
-                className={`w-[49%] mr-[2%] mb-2 p-1 transition border border-gray-50 ${index % 2 === 1 ? 'mr-0' : ''}`}
+                asChild
               >
-                <View className="flex flex-row gap-x-2 ">
-                  <Text className="text-base">{product.rating.toFixed(1)}</Text>
-                  <FontAwesome name="star" size={24} color="rgb(251 191 36)" />
-                </View>
-                <Image
-                  source={{
-                    uri: product.images[0].url,
-                  }}
-                  className="h-32 w-28 my-3 mx-auto"
-                />
-                <View
-                  className={`flex flex-row items-start mt-2 gap-x-2 ${
-                    product.discount ? 'justify-evenly' : 'justify-end pl-8'
-                  }`}
+                <TouchableOpacity
+                  key={product._id}
+                  className={`w-[49%] mr-[2%] mb-2 p-1 transition border border-gray-50 ${index % 2 === 1 ? 'mr-0' : ''}`}
                 >
-                  {product.discount ? <DiscountProduct discount={product.discount} /> : null}
-                  <ProductPrice
-                    inStock={product.inStock}
-                    discount={product.discount}
-                    price={product.price}
+                  <View className="flex flex-row gap-x-2 ">
+                    <Text className="text-base">{product.rating.toFixed(1)}</Text>
+                    <FontAwesome name="star" size={24} color="rgb(251 191 36)" />
+                  </View>
+                  <Image
+                    source={{
+                      uri: product.images[0].url,
+                    }}
+                    className="h-32 w-28 my-3 mx-auto"
                   />
-                </View>
-              </TouchableOpacity>
+                  <View
+                    className={`flex flex-row items-start mt-2 gap-x-2 ${
+                      product.discount ? 'justify-evenly' : 'justify-end pl-8'
+                    }`}
+                  >
+                    {product.discount ? <DiscountProduct discount={product.discount} /> : null}
+                    <ProductPrice
+                      inStock={product.inStock}
+                      discount={product.discount}
+                      price={product.price}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Link>
             ))}
       </View>
     </FeedSectionContainer>

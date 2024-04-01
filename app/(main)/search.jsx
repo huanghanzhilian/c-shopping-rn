@@ -1,7 +1,7 @@
+import { FlashList } from '@shopify/flash-list'
 import { Link, Stack } from 'expo-router'
 import { useState } from 'react'
 import { View, Text, Pressable, TextInput } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
 
 import {
   DiscountProduct,
@@ -20,25 +20,44 @@ export default function SerachScreen() {
 
   //? States
   const [search, setSearch] = useState('')
+  const [page, setPage] = useState(1)
 
   //? Assets
   const debouncedSearch = useDebounce(search, 1200)
 
   //? Search Products Query
-  const { data, isSuccess, isFetching, error, isError, refetch } = useGetProductsQuery(
-    {
-      search,
-    },
-    { skip: !debouncedSearch || search !== debouncedSearch }
-  )
+  const { data, isSuccess, isFetching, error, isError, refetch, hasNextPage, originalArgs } =
+    useGetProductsQuery(
+      {
+        search,
+        page,
+        page_size: 2,
+      },
+      {
+        skip: !debouncedSearch || search !== debouncedSearch,
+        selectFromResult: ({ data, ...args }) => {
+          return {
+            hasNextPage: data?.data?.pagination?.hasNextPage ?? false,
+            data,
+            ...args,
+          }
+        },
+      }
+    )
 
   //? Handlers
   const handleChange = value => {
     setSearch(value)
   }
 
+  const onEndReachedThreshold = () => {
+    if (!hasNextPage) return
+    setPage(Number(page) + 1)
+  }
+
   const handleRemoveSearch = () => {
     setSearch('')
+    setPage(1)
   }
 
   //? Render(s)
@@ -75,37 +94,43 @@ export default function SerachScreen() {
             dataLength={data ? data?.data?.productsLength : 0}
             emptyComponent={<EmptySearchList />}
             type="list"
+            originalArgs={originalArgs}
           >
-            <ScrollView className="h-full divide-y divide-neutral-200 space-y-3">
-              {data?.data?.productsLength &&
-                data?.data.productsLength > 0 &&
-                search.length > 0 &&
-                data?.data?.products.map(item => (
-                  <View key={item._id} className="py-2">
-                    <Link href={`/products/${item._id}`} asChild>
-                      <Pressable>
-                        <ResponsiveImage
-                          dimensions="w-20 h-20"
-                          imageStyles="w-20 h-20"
-                          source={item.images[0].url}
-                          alt={item.title}
-                        />
-                        <Text className="py-2 text-sm">{truncate(item.title, 70)}</Text>
-                        <View className="flex flex-row justify-between">
-                          <View>
-                            {item.discount > 0 && <DiscountProduct discount={item.discount} />}
-                          </View>
-                          <ProductPrice
-                            inStock={item.inStock}
-                            discount={item.discount}
-                            price={item.price}
+            <View className="h-full divide-y divide-neutral-200 space-y-3">
+              {data?.data?.productsLength && data?.data.productsLength > 0 && search.length > 0 && (
+                <FlashList
+                  data={data?.data?.products}
+                  renderItem={({ item, index }) => (
+                    <View key={item._id} className="py-2">
+                      <Link href={`/products/${item._id}`} asChild>
+                        <Pressable>
+                          <ResponsiveImage
+                            dimensions="w-20 h-20"
+                            imageStyles="w-20 h-20"
+                            source={item.images[0].url}
+                            alt={item.title}
                           />
-                        </View>
-                      </Pressable>
-                    </Link>
-                  </View>
-                ))}
-            </ScrollView>
+                          <Text className="py-2 text-sm">{truncate(item.title, 70)}</Text>
+                          <View className="flex flex-row justify-between">
+                            <View>
+                              {item.discount > 0 && <DiscountProduct discount={item.discount} />}
+                            </View>
+                            <ProductPrice
+                              inStock={item.inStock}
+                              discount={item.discount}
+                              price={item.price}
+                            />
+                          </View>
+                        </Pressable>
+                      </Link>
+                    </View>
+                  )}
+                  onEndReached={onEndReachedThreshold}
+                  onEndReachedThreshold={0}
+                  estimatedItemSize={200}
+                />
+              )}
+            </View>
           </ShowWrapper>
         </View>
       </View>

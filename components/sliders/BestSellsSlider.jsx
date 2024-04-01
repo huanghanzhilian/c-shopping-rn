@@ -1,5 +1,6 @@
 import { FlashList } from '@shopify/flash-list'
-import { View, Text, Image } from 'react-native'
+import { Link } from 'expo-router'
+import { View, Text, Image, Pressable } from 'react-native'
 
 import FeedSectionContainer from '../common/FeedSectionContainer'
 import Skeleton from '../common/Skeleton'
@@ -60,8 +61,15 @@ export default function BestSellsSlider(props) {
           renderItem={({ item, index }) => (
             <View className="mr-4">
               {item.map((row, rowIndex) => (
-                <View key={rowIndex} className="px-1 py-4 w-60">
-                  <View className="flex flex-row">
+                <Link
+                  href={{
+                    pathname: `/products/${row._id}`,
+                  }}
+                  key={row._id}
+                  asChild
+                  className="px-1 py-4 w-60"
+                >
+                  <Pressable className="flex flex-row">
                     <Image
                       source={{
                         uri: row.images[0].url,
@@ -72,8 +80,8 @@ export default function BestSellsSlider(props) {
                       <Text className="text-2xl text-sky-500 mx-2">{index * 2 + rowIndex + 1}</Text>
                       <Text className="flex-auto">{truncate(row.title, 15)}</Text>
                     </View>
-                  </View>
-                </View>
+                  </Pressable>
+                </Link>
               ))}
             </View>
           )}
