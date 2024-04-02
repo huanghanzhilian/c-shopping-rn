@@ -19,6 +19,7 @@ export { default as HandleResponse } from './common/HandleResponse'
 export { default as BoxLink } from './common/BoxLink'
 export { default as ResponsiveImage } from './common/ResponsiveImage'
 export { default as Modal } from './common/Modal'
+export { default as WithAddressModal } from './common/WithAddressModal'
 export * from './common/Buttons'
 
 //* LOADING
@@ -90,6 +91,7 @@ export { default as ReveiwSkeleton } from './skeleton/ReveiwSkeleton'
 //* MODAL COMPONENTS
 export { default as UserMobileModal } from './modals/UserMobileModal'
 export { default as UserNameModal } from './modals/UserNameModal'
+export { default as AddressModal } from './modals/AddressModal'
 
 //* SVGs
 export { default as Logo } from './svgs/logo.svg'

@@ -26,7 +26,6 @@ export default function TextField(props) {
       <TextInput
         className="w-full px-3 py-2.5 transition-colors border border-gray-200 rounded-md outline-none bg-zinc-50/30 focus:border-blue-600 leading-none"
         id={name}
-        type={type}
         value={field?.value}
         name={field.name}
         onBlur={field.onBlur}

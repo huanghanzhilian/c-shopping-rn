@@ -50,7 +50,6 @@ const Sort = ({ handleChangeRoute }) => {
           onClose={sortHandlers.close}
           animationIn="slideInRight"
           animationOut="slideOutRight"
-          effect="bottom-to-top"
           onBackdropPress={sortHandlers.close}
         >
           <Modal.Content

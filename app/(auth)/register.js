@@ -88,7 +88,7 @@ export default function RegisterScreen() {
 
             <TextField
               errors={formErrors.password}
-              type="password"
+              secureTextEntry
               placeholder="请输入您的账户密码"
               name="password"
               control={control}
@@ -96,7 +96,7 @@ export default function RegisterScreen() {
             <TextField
               control={control}
               errors={formErrors.confirmPassword}
-              type="password"
+              secureTextEntry
               placeholder="确认密码，请再次输入"
               name="confirmPassword"
             />

@@ -82,7 +82,7 @@ export default function LoginScreen() {
 
             <TextField
               errors={formErrors.password}
-              type="password"
+              secureTextEntry
               placeholder="请输入您的账户密码"
               name="password"
               control={control}

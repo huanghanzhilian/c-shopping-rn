@@ -97,7 +97,11 @@ export default function ProductsScreen() {
             {/* Filters & Sort */}
             <View className="divide-y-2 divide-neutral-200">
               <View className="flex flex-row py-2 gap-x-3">
-                <Filter />
+                <Filter
+                  mainMaxPrice={data?.data?.mainMaxPrice}
+                  mainMinPrice={data?.data?.mainMinPrice}
+                  handleChangeRoute={handleChangeRoute}
+                />
                 <Sort handleChangeRoute={handleChangeRoute} />
               </View>
 

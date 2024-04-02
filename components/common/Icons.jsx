@@ -8,6 +8,7 @@ import {
   SimpleLineIcons,
   FontAwesome,
   Entypo,
+  FontAwesome6,
 } from '@expo/vector-icons'
 
 const Icons = {
@@ -17,6 +18,7 @@ const Icons = {
   Ionicons,
   EvilIcons,
   MaterialIcons,
+  FontAwesome6,
   AntDesign,
   SimpleLineIcons,
   Entypo,
