@@ -5,7 +5,15 @@ import { RadioButton } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Toast from 'react-native-toast-message'
 
-import { AuthWrapper, Button, CartInfo, HandleResponse, Icons, ResponsiveImage } from '@/components'
+import {
+  AuthWrapper,
+  Button,
+  CartInfo,
+  HandleResponse,
+  Icons,
+  ResponsiveImage,
+  WithAddressModal,
+} from '@/components'
 import { useAppDispatch, useAppSelector, useUserInfo } from '@/hooks'
 import { useCreateOrderMutation } from '@/services'
 import { clearCart } from '@/store'
@@ -62,11 +70,20 @@ export default function PaymentScreen() {
   }
 
   //? Local Components
-  const ChangeAddress = () => {
+  const ChangeAddress = ({ addressModalProps }) => {
+    const BasicChangeAddress = ({ addressModalProps }) => {
+      const { openAddressModal } = addressModalProps || {}
+      return (
+        <Pressable onPress={openAddressModal} type="button" className="flex items-center ml-auto">
+          <Icons.AntDesign name="right" size={16} className="icon text-sky-500" />
+        </Pressable>
+      )
+    }
+
     return (
-      <Pressable type="button" className="flex items-center ml-auto">
-        <Icons.AntDesign name="right" size={16} className="icon text-sky-500" />
-      </Pressable>
+      <WithAddressModal>
+        <BasicChangeAddress />
+      </WithAddressModal>
     )
   }
 

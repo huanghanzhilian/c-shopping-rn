@@ -20,6 +20,7 @@ export { default as BoxLink } from './common/BoxLink'
 export { default as ResponsiveImage } from './common/ResponsiveImage'
 export { default as Modal } from './common/Modal'
 export { default as WithAddressModal } from './common/WithAddressModal'
+export { default as Combobox } from './common/Combobox'
 export * from './common/Buttons'
 
 //* LOADING

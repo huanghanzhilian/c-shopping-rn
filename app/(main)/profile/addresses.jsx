@@ -93,7 +93,7 @@ const BasicAddresses = ({ addressModalProps }) => {
               onPress={openAddressModal}
             >
               <Icons.Entypo name="location" size={16} className="text-gray-500 icon" />
-              <Text>增加登记</Text>
+              <Text>新增地址</Text>
             </Pressable>
           </View>
         )}
