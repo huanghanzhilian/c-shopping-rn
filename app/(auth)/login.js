@@ -35,9 +35,9 @@ export default function LoginScreen() {
   }, [])
 
   //? Handlers
-  const onSubmit = async ({ email, password }) => {
+  const onSubmit = ({ email, password }) => {
     if (email && password) {
-      await login({
+      login({
         body: { email, password },
       })
     }

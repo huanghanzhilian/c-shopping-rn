@@ -35,9 +35,9 @@ export default function RegisterScreen() {
   }, [])
 
   //? Handlers
-  const onSubmit = async ({ name, email, password }) => {
+  const onSubmit = ({ name, email, password }) => {
     if (name && email && password) {
-      await createUser({
+      createUser({
         body: { name, email, password },
       })
     }
