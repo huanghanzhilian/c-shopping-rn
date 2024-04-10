@@ -16,28 +16,18 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.huanghanzhilian.cshoppingrn"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.huanghanzhilian.cshoppingrn"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "scheme": "shoppig-rn-scheme",
-    "plugins": ["expo-router"],
-    "extra": {
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "6008f07d-60c7-4445-a5f6-8ac27597dcee"
-      }
-    }
+    "plugins": ["expo-router"]
   }
 }
