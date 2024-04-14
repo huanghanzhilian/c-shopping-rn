@@ -123,6 +123,12 @@ To run the C-Shopping React Native app locally, follow these steps:
 
 6. Connect your mobile device or emulator to run the app.
 
+## Public Account
+
+Follow the public account for more information. Feel free to provide feedback or suggestions through issues or the public account.
+
+![Ji Xiaopeng Public Account](https://www.cheerspublishing.com/uploads/article/4632461d-0d43-4378-bcf7-bb32bf0de950.jpeg)
+
 ## Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request.
